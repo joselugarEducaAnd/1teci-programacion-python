@@ -1,0 +1,298 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programación con Python",
+    "section": "",
+    "text": "Bienvenida\nProgramar es una herramienta de ingeniero, no de informático. En esta unidad vas a aprender a pensar en algoritmos y a traducirlos a Python para resolver problemas técnicos: convertir unidades, elegir un fusible, simular un movimiento, calcular la resistencia equivalente de un circuito, analizar medidas experimentales.\nNo vas a hacer juegos ni adivinanzas. Vas a programar las mismas cosas que aparecen en los problemas de la asignatura, en las prácticas de laboratorio y, eventualmente, en la PAU.\nAl final de las 6 sesiones sabrás:\n\nAnalizar un problema técnico identificando entradas, salidas y procesos intermedios.\nDiseñar un algoritmo en pseudocódigo o diagrama de flujo antes de tocar código.\nEscribir el programa Python en online-python.com usando variables, condicionales, bucles, listas y funciones.\nTrazar paso a paso la ejecución de cualquier programa Python sencillo y predecir su salida — esto es lo que se evaluará en el examen final.\n\n\n\nLa ruta de la unidad\n\n\n\n\n\n\nflowchart LR\n  S1[\"📗 S1 · Variables\"]:::base\n  S2[\"📗 S2 · Condicionales\"]:::base\n  S3[\"📗 S3 · Bucles for\"]:::base\n  S4[\"📗 S4 · while + listas\"]:::base\n  S5[\"📗 S5 · Funciones\"]:::base\n  S6[\"📗 S6 · Integración\"]:::base\n  EX[\"📝 Examen\"]:::cierre\n  S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6 --&gt; EX\n  classDef base   fill:#f3f1ff,stroke:#453f93,color:#1a1244,stroke-width:2px\n  classDef cierre fill:#fff7e6,stroke:#a36c0d,color:#3a2200,stroke-width:2px\n\n\n\n\nFigure 2.1\n\n\n\n\n\n\n\nCómo se trabaja en cada sesión\nCada sesión sigue el mismo método. Es el método de un ingeniero ante un problema desconocido:\n\n\n\n\n\n\nNotaEl bucle del programador\n\n\n\n\nAnalizas el problema. ¿Qué entran? ¿Qué tiene que salir? ¿Qué cálculos hay en medio?\nEscribes el pseudocódigo o el diagrama de flujo. Antes de tocar Python. Si lo piensas en español, lo entiendes; si lo escribes en Python directamente, te pierdes.\nCodificas en Python, en online-python.com.\nTrazas y validas. ¿Qué imprime con valores conocidos? ¿Coincide con lo que esperabas?\n\nSi te saltas el paso 2 estás programando a ciegas. Volverás siempre a él cuando algo no salga.\n\n\n\n\nEntorno de programación: online-python.com\nDurante toda la unidad usarás online-python.com. Es un IDE web, no requiere cuenta ni instalación, y funciona idéntico en cualquier ordenador del aula.\n\n\n\n\n\n\nWarningCómo organizar el trabajo y entregarlo\n\n\n\nCada sesión hay varias prácticas. Para no perderte y para entregarlo todo de golpe al final, online-python permite tener varias pestañas abiertas a la vez (botón + en la barra de pestañas). La rutina es siempre la misma:\nDurante la sesión, para cada práctica:\n\nPulsa + para abrir una pestaña nueva.\nRenombra la pestaña con el nombre que indique el profesor en cada práctica. La convención es sN_pN_descripcion.py (sesión, práctica, descripción corta). Por ejemplo: s1_p1_convertidor.py. Para renombrar, doble clic en el título de la pestaña o clic derecho → Rename.\nEscribe el código de esa práctica en esa pestaña.\n\nAl terminar la sesión:\n\nPulsa el botón de descarga del editor. En el menú que aparece, elige “Save all files as project (ZIP)”: se baja un único .zip con todas tus pestañas dentro.\nRenombra el ZIP siguiendo la convención sN_descripcion_apellido.zip (por ejemplo s1_variables_garcia.zip). Respeta la extensión .zip.\nSube el ZIP a la tarea de Moodle correspondiente a esa sesión. Solo un ZIP por sesión, con todas las prácticas dentro. Moodle es la única ubicación válida: no vale pendrive, no vale Drive personal, no vale iCloud.\n\nSi cierras el navegador sin descargar, lo pierdes todo. Acostúmbrate a la rutina desde S1.\n\n\n\n\n\n\n\n\nTipLas prácticas no se califican, pero suben nota\n\n\n\nLas prácticas que entregues en Moodle al final de cada sesión no se califican individualmente. La nota base de la unidad sale del examen final, y solo del examen.\nEso sí, al final de la unidad se cuenta el porcentaje de prácticas entregadas. Si has entregado en plazo prácticamente todas, puedes subir hasta 1 punto sobre tu nota del examen (siempre que tengas el examen aprobado).\nEs un incentivo a programar de verdad cada sesión. La diferencia entre ver cómo se programa y programar tú está en hacer la práctica, no en mirarla.\n\n\n\n\nQué aprendes en cada sesión\n\n\n\n\n\n\n\n\n\nSesión\nLo que aprendes\nProblema base\nProblema avanzado\n\n\n\n\nS1\nVariables, tipos, entrada/salida\nConvertidor de unidades\nValidación de entradas\n\n\nS2\nCondicionales if/elif/else\nSelector de fusible\nClasificador de materiales\n\n\nS3\nBucles for, acumuladores\nTabla de MRUA\nVelocidad media y máxima\n\n\nS4\nwhile y listas\nEstadística de medidas\nDetección de outliers\n\n\nS5\nFunciones\nResistencias en serie y paralelo\nCircuitos mixtos\n\n\nS6\nIntegración + simulacro\nDescarga de un condensador\n(sin extensión)\n\n\n\nLas fechas y aulas concretas de cada sesión las tienes en el aviso de Moodle y se recuerdan al principio de cada clase.\n\n\nCómo se evalúa la unidad\nLa calificación del criterio CE5.3 (“Conocer y comprender conceptos básicos de programación textual, mostrando el progreso paso a paso de la ejecución de un programa…”) sale de un único examen en dos partes, en días separados:\n\nExamen — parte papel: 70 % de la nota. Sin ordenador, sin apuntes (salvo una hoja-resumen de sintaxis que entrega el profesor con el examen). Cuatro bloques: predicción de salida, detección de errores, trazado paso a paso, escritura de código a mano.\nExamen — parte pantalla: 30 % de la nota. Un problema corto resuelto en online-python.com bajo supervisión directa.\n\nA esta nota base se le pueden sumar hasta 1 punto por haber entregado las prácticas de cada sesión en Moodle (ver más arriba). Es un incentivo a trabajar de verdad las sesiones: no es nota fácil de la que dependa aprobar, pero sí marca la diferencia entre notable y sobresaliente para quien programe en serio en clase.\n\n\n\n\n\n\nImportanteLas prácticas en Moodle suben nota, pero no aprueban por sí solas\n\n\n\nAunque ninguna práctica intersesión se califique individualmente, sí se entregan en Moodle. Eso permite al profesor comprobar que has escrito y ejecutado el código de verdad. La nota base del examen es lo que decide aprobado/suspenso; las prácticas solo redondean al alza.\nAprovecha bien las 6 sesiones de aula: son tu única forma de practicar antes del examen.\n\n\n\n\nAntes de empezar\nNecesitas, además del ordenador del aula:\n\nUn cuaderno o folios para pseudocódigo, diagramas de flujo y trazado paso a paso. El método de programación de esta unidad empieza siempre en papel.\nBolígrafo. Lápiz para los diagramas (que se borran y se rehacen mucho).\n\nCuando estés en clase, abre S1 · Variables, tipos y entrada/salida y arranca.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Programación con Python</span>"
+    ]
+  },
+  {
+    "objectID": "s1_variables_tipos.html",
+    "href": "s1_variables_tipos.html",
+    "title": "S1 · Variables, tipos y entrada/salida",
+    "section": "",
+    "text": "Objetivo de la sesión\nHoy vas a escribir, ejecutar y modificar tu primer programa Python. Es lo que toca: arrancar el motor. Al terminar la sesión sabrás:\nEl problema base es un clásico de ingeniería: convertir velocidad de km/h a m/s. Con eso aprendes todo lo necesario para programar cualquier fórmula técnica.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>S1 · Variables, tipos y entrada/salida</span>"
+    ]
+  },
+  {
+    "objectID": "s1_variables_tipos.html#paso-1-análisis",
+    "href": "s1_variables_tipos.html#paso-1-análisis",
+    "title": "S1 · Variables, tipos y entrada/salida",
+    "section": "Paso 1 — Análisis",
+    "text": "Paso 1 — Análisis\n\nEntrada: una velocidad en km/h, que la teclea el usuario.\nSalida: la misma velocidad expresada en m/s.\nProceso: dividir entre 3,6 (porque 1 km/h = 1000 m / 3600 s = 1/3,6 m/s).",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>S1 · Variables, tipos y entrada/salida</span>"
+    ]
+  },
+  {
+    "objectID": "s1_variables_tipos.html#paso-2-pseudocódigo",
+    "href": "s1_variables_tipos.html#paso-2-pseudocódigo",
+    "title": "S1 · Variables, tipos y entrada/salida",
+    "section": "Paso 2 — Pseudocódigo",
+    "text": "Paso 2 — Pseudocódigo\npedir al usuario una velocidad en km/h\nguardarla en una variable\ncalcular la velocidad en m/s dividiendo entre 3.6\nmostrar el resultado",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>S1 · Variables, tipos y entrada/salida</span>"
+    ]
+  },
+  {
+    "objectID": "s1_variables_tipos.html#paso-3-código-python",
+    "href": "s1_variables_tipos.html#paso-3-código-python",
+    "title": "S1 · Variables, tipos y entrada/salida",
+    "section": "Paso 3 — Código Python",
+    "text": "Paso 3 — Código Python\nEscríbelo línea a línea en online-python.com. No copies y pegues: tecléalo. Aprendes con los dedos.\n# Convertidor de velocidad km/h → m/s\n\n# Entrada\ntexto = input(\"Velocidad en km/h: \")\nv_kmh = float(texto)\n\n# Procesamiento\nv_ms = v_kmh / 3.6\n\n# Salida\nprint(v_kmh, \"km/h equivalen a\", v_ms, \"m/s\")",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>S1 · Variables, tipos y entrada/salida</span>"
+    ]
+  },
+  {
+    "objectID": "s1_variables_tipos.html#paso-4-trazado-y-validación",
+    "href": "s1_variables_tipos.html#paso-4-trazado-y-validación",
+    "title": "S1 · Variables, tipos y entrada/salida",
+    "section": "Paso 4 — Trazado y validación",
+    "text": "Paso 4 — Trazado y validación\nEjecútalo varias veces con valores conocidos. Comprueba mentalmente que los resultados son razonables:\n\n\n\nEntrada (km/h)\nSalida esperada (m/s)\n¿Acertó?\n\n\n\n\n36\n10.0\n\n\n\n90\n25.0\n\n\n\n0\n0.0\n\n\n\n100\n27.78…\n\n\n\n\nSi no coincide con lo que esperabas, lee el código con calma. El 90 % de los errores de los principiantes son de tipado o de orden: paréntesis sin cerrar, indentación, una mayúscula donde no toca.\n\n\n\n\n\n\nTipSi te falla, pregúntate por orden\n\n\n\n\n¿Tengo float(...) rodeando la entrada? Sin eso, no se puede dividir.\n¿He escrito 3.6 con punto, no con coma? Python siempre usa punto decimal.\n¿Están bien las comillas?\n¿Estoy llamando a la variable con el mismo nombre con el que la definí?",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>S1 · Variables, tipos y entrada/salida</span>"
+    ]
+  },
+  {
+    "objectID": "s1_variables_tipos.html#análisis-y-pseudocódigo",
+    "href": "s1_variables_tipos.html#análisis-y-pseudocódigo",
+    "title": "S1 · Variables, tipos y entrada/salida",
+    "section": "Análisis y pseudocódigo",
+    "text": "Análisis y pseudocódigo\n\nEntrada: tensión V en voltios, intensidad I en amperios.\nSalida: potencia P en vatios.\nProceso: multiplicar las dos entradas.\n\npedir tensión V\npedir intensidad I\ncalcular P = V * I\nmostrar P",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>S1 · Variables, tipos y entrada/salida</span>"
+    ]
+  },
+  {
+    "objectID": "s1_variables_tipos.html#código",
+    "href": "s1_variables_tipos.html#código",
+    "title": "S1 · Variables, tipos y entrada/salida",
+    "section": "Código",
+    "text": "Código\nEscríbelo tú a partir del pseudocódigo. Si te atascas, despliega la solución haciendo clic en el bloque de abajo — pero solo después de haberlo intentado tú a fondo.\n\n\n\n\n\n\nSoluciónSolución (clic para desplegar)\n\n\n\n\n\n# Cálculo de potencia eléctrica P = V * I\n\n# Entrada\nV = float(input(\"Tensión en voltios: \"))\nI = float(input(\"Intensidad en amperios: \"))\n\n# Procesamiento\nP = V * I\n\n# Salida\nprint(\"Potencia consumida:\", P, \"W\")",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>S1 · Variables, tipos y entrada/salida</span>"
+    ]
+  },
+  {
+    "objectID": "s1_variables_tipos.html#comprobaciones-rápidas",
+    "href": "s1_variables_tipos.html#comprobaciones-rápidas",
+    "title": "S1 · Variables, tipos y entrada/salida",
+    "section": "Comprobaciones rápidas",
+    "text": "Comprobaciones rápidas\n\n\n\nEntrada (V, I)\nSalida esperada (W)\n\n\n\n\n12, 2\n24\n\n\n230, 0.5\n115\n\n\n5, 1.5\n7.5",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>S1 · Variables, tipos y entrada/salida</span>"
+    ]
+  },
+  {
+    "objectID": "s2_condicionales.html",
+    "href": "s2_condicionales.html",
+    "title": "S2 · Condicionales",
+    "section": "",
+    "text": "Objetivo de la sesión\nEn S1 escribiste programas que ejecutaban siempre las mismas instrucciones. Hoy aprenderás a hacer que un programa tome decisiones: que ejecute unas instrucciones u otras según el valor de los datos.\nAl terminar la sesión sabrás:\nEl problema base es un clásico de electrotecnia: dada la intensidad nominal de un circuito, decidir qué calibre comercial de fusible instalar.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>S2 · Condicionales</span>"
+    ]
+  },
+  {
+    "objectID": "s2_condicionales.html#paso-1-análisis",
+    "href": "s2_condicionales.html#paso-1-análisis",
+    "title": "S2 · Condicionales",
+    "section": "Paso 1 — Análisis",
+    "text": "Paso 1 — Análisis\n\nEntrada: intensidad nominal I en amperios (float, la teclea el usuario).\nSalida: el calibre del fusible recomendado (6, 10, 16, 20, 25 o 32 A) o un aviso si no cabe en el catálogo.\nProceso: comparar I con cada calibre, en orden creciente, y elegir el primero que sea mayor o igual.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>S2 · Condicionales</span>"
+    ]
+  },
+  {
+    "objectID": "s2_condicionales.html#paso-2-diagrama-de-flujo",
+    "href": "s2_condicionales.html#paso-2-diagrama-de-flujo",
+    "title": "S2 · Condicionales",
+    "section": "Paso 2 — Diagrama de flujo",
+    "text": "Paso 2 — Diagrama de flujo\nDibújalo tú primero en papel. Cuando lo tengas, comprueba con este:\n\n\n\n\n\nflowchart TD\n  inicio([Inicio]):::start\n  leer[/Leer I/]:::io\n  p1{¿I &lt;= 6?}:::cond\n  p2{¿I &lt;= 10?}:::cond\n  p3{¿I &lt;= 16?}:::cond\n  p4{¿I &lt;= 20?}:::cond\n  p5{¿I &lt;= 25?}:::cond\n  p6{¿I &lt;= 32?}:::cond\n  a1[Fusible 6 A]:::act\n  a2[Fusible 10 A]:::act\n  a3[Fusible 16 A]:::act\n  a4[Fusible 20 A]:::act\n  a5[Fusible 25 A]:::act\n  a6[Fusible 32 A]:::act\n  a7[Aviso: fuera de catálogo]:::warn\n  fin([Fin]):::start\n\n  inicio --&gt; leer --&gt; p1\n  p1 -- &quot;Sí&quot; --&gt; a1 --&gt; fin\n  p1 -- &quot;No&quot; --&gt; p2\n  p2 -- &quot;Sí&quot; --&gt; a2 --&gt; fin\n  p2 -- &quot;No&quot; --&gt; p3\n  p3 -- &quot;Sí&quot; --&gt; a3 --&gt; fin\n  p3 -- &quot;No&quot; --&gt; p4\n  p4 -- &quot;Sí&quot; --&gt; a4 --&gt; fin\n  p4 -- &quot;No&quot; --&gt; p5\n  p5 -- &quot;Sí&quot; --&gt; a5 --&gt; fin\n  p5 -- &quot;No&quot; --&gt; p6\n  p6 -- &quot;Sí&quot; --&gt; a6 --&gt; fin\n  p6 -- &quot;No&quot; --&gt; a7 --&gt; fin\n\n  classDef start fill:#f3f1ff,stroke:#453f93,color:#1a1244,stroke-width:2px\n  classDef io    fill:#fff7e6,stroke:#a36c0d,color:#3a2200,stroke-width:2px\n  classDef cond  fill:#fee2e2,stroke:#c0392b,color:#7b1f1f,stroke-width:2px\n  classDef act   fill:#effaf2,stroke:#2a7d4f,color:#0e3520,stroke-width:2px\n  classDef warn  fill:#fef3c7,stroke:#b45309,color:#5b2e00,stroke-width:2px\n\n\n\n\n\n\nFíjate en el patrón escalera: cada No baja al siguiente nivel. Esto se traduce directamente a if/elif/else en código.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>S2 · Condicionales</span>"
+    ]
+  },
+  {
+    "objectID": "s2_condicionales.html#paso-3-pseudocódigo",
+    "href": "s2_condicionales.html#paso-3-pseudocódigo",
+    "title": "S2 · Condicionales",
+    "section": "Paso 3 — Pseudocódigo",
+    "text": "Paso 3 — Pseudocódigo\npedir intensidad I al usuario\nsi I &lt;= 6:           recomendar fusible de 6 A\nsi no, si I &lt;= 10:   recomendar fusible de 10 A\nsi no, si I &lt;= 16:   recomendar fusible de 16 A\nsi no, si I &lt;= 20:   recomendar fusible de 20 A\nsi no, si I &lt;= 25:   recomendar fusible de 25 A\nsi no, si I &lt;= 32:   recomendar fusible de 32 A\nsi no:               avisar \"fuera de catálogo\"",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>S2 · Condicionales</span>"
+    ]
+  },
+  {
+    "objectID": "s2_condicionales.html#paso-4-código-python",
+    "href": "s2_condicionales.html#paso-4-código-python",
+    "title": "S2 · Condicionales",
+    "section": "Paso 4 — Código Python",
+    "text": "Paso 4 — Código Python\n# Selector de calibre de fusible\n\n# Entrada\nI = float(input(\"Intensidad nominal del circuito (A): \"))\n\n# Decisión\nif I &lt;= 6:\n    print(\"Fusible recomendado: 6 A\")\nelif I &lt;= 10:\n    print(\"Fusible recomendado: 10 A\")\nelif I &lt;= 16:\n    print(\"Fusible recomendado: 16 A\")\nelif I &lt;= 20:\n    print(\"Fusible recomendado: 20 A\")\nelif I &lt;= 25:\n    print(\"Fusible recomendado: 25 A\")\nelif I &lt;= 32:\n    print(\"Fusible recomendado: 32 A\")\nelse:\n    print(\"Aviso: la intensidad supera el catálogo doméstico. Consultar fusibles industriales.\")",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>S2 · Condicionales</span>"
+    ]
+  },
+  {
+    "objectID": "s2_condicionales.html#paso-5-trazado-y-validación",
+    "href": "s2_condicionales.html#paso-5-trazado-y-validación",
+    "title": "S2 · Condicionales",
+    "section": "Paso 5 — Trazado y validación",
+    "text": "Paso 5 — Trazado y validación\nEjecútalo con varios valores y comprueba que el calibre recomendado es el correcto:\n\n\n\nIntensidad introducida (A)\nFusible esperado\n\n\n\n\n4\n6 A\n\n\n6\n6 A (justo encaja)\n\n\n7\n10 A\n\n\n15\n16 A\n\n\n18\n20 A\n\n\n32\n32 A\n\n\n40\nAviso\n\n\n\n\n\n\n\n\n\nTipDetalle importante de los &lt;= vs &lt;\n\n\n\nSi I vale exactamente 6, queremos que recomiende el fusible de 6 A — no el de 10. Por eso el operador es &lt;= (menor o igual) y no &lt; (estrictamente menor). Cambiar un operador por otro es uno de los errores típicos del examen: un fallo de criterio que cambia el comportamiento solo en los valores justos.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>S2 · Condicionales</span>"
+    ]
+  },
+  {
+    "objectID": "s3_bucles_for.html",
+    "href": "s3_bucles_for.html",
+    "title": "S3 · Bucles for",
+    "section": "",
+    "text": "Objetivo de la sesión\nEn S1 escribiste programas que ejecutaban una secuencia fija de instrucciones. En S2, programas que decidían qué ejecutar según los datos. Hoy aprendes a repetir un cálculo todas las veces que haga falta, sin tener que escribirlo una y otra vez.\nAl terminar la sesión sabrás:\nEl problema base es el primer cálculo físico real de la unidad: construir la tabla t, v(t), x(t) de un movimiento rectilíneo uniformemente acelerado (MRUA), el mismo cálculo que haces a mano en electrotecnia o física.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>S3 · Bucles for</span>"
+    ]
+  },
+  {
+    "objectID": "s3_bucles_for.html#paso-1-análisis",
+    "href": "s3_bucles_for.html#paso-1-análisis",
+    "title": "S3 · Bucles for",
+    "section": "Paso 1 — Análisis",
+    "text": "Paso 1 — Análisis\n\nEntradas: v0 (m/s), a (m/s²), t_final (s), dt (s).\nSalida: una línea de texto por cada instante de tiempo, con los valores de t, v y x.\nProceso: iterar t desde 0 hasta t_final con paso dt. En cada iteración, calcular v y x con las fórmulas y mostrarlos.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>S3 · Bucles for</span>"
+    ]
+  },
+  {
+    "objectID": "s3_bucles_for.html#paso-2-pseudocódigo",
+    "href": "s3_bucles_for.html#paso-2-pseudocódigo",
+    "title": "S3 · Bucles for",
+    "section": "Paso 2 — Pseudocódigo",
+    "text": "Paso 2 — Pseudocódigo\npedir v0, a, t_final, dt al usuario\ncalcular n_pasos = parte entera de (t_final / dt) + 1\nimprimir cabecera \"  t      v       x\"\npara i desde 0 hasta n_pasos - 1:\n    calcular t = i * dt\n    calcular v = v0 + a * t\n    calcular x = v0 * t + 0.5 * a * t * t\n    imprimir t, v, x",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>S3 · Bucles for</span>"
+    ]
+  },
+  {
+    "objectID": "s3_bucles_for.html#paso-3-el-truco-del-índice",
+    "href": "s3_bucles_for.html#paso-3-el-truco-del-índice",
+    "title": "S3 · Bucles for",
+    "section": "Paso 3 — El truco del índice",
+    "text": "Paso 3 — El truco del índice\nComo range solo admite enteros, no podemos iterar t directamente con paso dt = 0.5. Lo que hacemos:\n\nCalculamos cuántos pasos caben: n_pasos = int(t_final / dt) + 1. El +1 es para incluir el instante final.\nIteramos el índice i desde 0 hasta n_pasos - 1 con range(n_pasos).\nDentro del bucle, calculamos el tiempo real con t = i * dt.\n\nPor ejemplo, con t_final = 10 y dt = 0.5, n_pasos vale int(10/0.5) + 1 = 21, e i va de 0 a 20. Los tiempos serán t = 0.0, 0.5, 1.0, ..., 10.0.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>S3 · Bucles for</span>"
+    ]
+  },
+  {
+    "objectID": "s3_bucles_for.html#paso-4-código-python",
+    "href": "s3_bucles_for.html#paso-4-código-python",
+    "title": "S3 · Bucles for",
+    "section": "Paso 4 — Código Python",
+    "text": "Paso 4 — Código Python\nEscríbelo línea a línea, no copies y pegues.\n# Tabla de un MRUA\n\n# Entradas\nv0 = float(input(\"Velocidad inicial v0 (m/s): \"))\na = float(input(\"Aceleración a (m/s^2): \"))\nt_final = float(input(\"Tiempo final (s): \"))\ndt = float(input(\"Paso de tiempo dt (s): \"))\n\n# Número de pasos\nn_pasos = int(t_final / dt) + 1\n\n# Cabecera\nprint(\"  t       v       x\")\n\n# Bucle\nfor i in range(n_pasos):\n    t = i * dt\n    v = v0 + a * t\n    x = v0 * t + 0.5 * a * t * t\n    print(t, v, x)",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>S3 · Bucles for</span>"
+    ]
+  },
+  {
+    "objectID": "s3_bucles_for.html#paso-5-trazado-y-validación",
+    "href": "s3_bucles_for.html#paso-5-trazado-y-validación",
+    "title": "S3 · Bucles for",
+    "section": "Paso 5 — Trazado y validación",
+    "text": "Paso 5 — Trazado y validación\nEjecútalo con v0 = 0, a = 2, t_final = 5, dt = 1. Antes de mirar la salida, rellena tú la tabla esperada:\n\n\n\nt\nv esperado\nx esperado\n\n\n\n\n0\n0\n0\n\n\n1\n2\n1\n\n\n2\n4\n4\n\n\n3\n6\n9\n\n\n4\n8\n16\n\n\n5\n10\n25\n\n\n\nSi tu programa imprime estos valores (puede ser con muchos decimales de cola, no importa), está bien.\n\n\n\n\n\n\nTipSi el último valor de t no es exactamente t_final\n\n\n\nComo dt es un decimal, a veces n_pasos sale por un fallo de redondeo y el último t se queda corto o se pasa. No te preocupes: con t_final = 10 y dt = 0.5 funciona perfecto; con dt = 0.3 podrías ver un comportamiento raro. Si quieres profundizar en eso, consúltalo con el profesor — no entra en el examen.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>S3 · Bucles for</span>"
+    ]
+  },
+  {
+    "objectID": "s4_while_listas.html",
+    "href": "s4_while_listas.html",
+    "title": "S4 · while y listas",
+    "section": "",
+    "text": "Próxima sesión\n\n\n\n\n\n\nNotaEsta página estará disponible antes de la sesión\n\n\n\nEn S4 distinguirás for (repetición controlada) de while (repetición por condición), e introducirás las listas como contenedor de varios datos a la vez. El problema base será una calculadora de estadísticos (media, mínimo, máximo, rango) sobre una lista de medidas experimentales. La extensión: detectar outliers.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>S4 · while y listas</span>"
+    ]
+  },
+  {
+    "objectID": "s5_funciones.html",
+    "href": "s5_funciones.html",
+    "title": "S5 · Funciones",
+    "section": "",
+    "text": "Próxima sesión\n\n\n\n\n\n\nNotaEsta página estará disponible antes de la sesión\n\n\n\nEn S5 aprenderás a definir funciones propias con def, parámetros y return. Construirás una pequeña biblioteca con Rserie y Rparalelo para calcular resistencias equivalentes. La extensión: calcular la resistencia equivalente de un circuito mixto serie-paralelo descomponiéndolo en pasos.\nEs la sesión más importante de la unidad desde el punto de vista del pensamiento computacional: aprender a descomponer un problema en subproblemas y a reutilizar código.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>S5 · Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html",
+    "href": "s6_integracion.html",
+    "title": "S6 · Integración y simulacro",
+    "section": "",
+    "text": "Última sesión antes del examen\n\n\n\n\n\n\nNotaEsta página estará disponible antes de la sesión\n\n\n\nEn S6 integrarás todo lo aprendido en un único problema: simulación de la descarga de un condensador a través de una resistencia. El programa combinará entrada de datos, una función para V(t), un bucle para iterar en el tiempo y una lista para almacenar los valores. La extensión consistirá en imprimir la tabla con un formato bonito.\nLa segunda mitad de la sesión será un simulacro escrito del examen: 4 preguntas tipo, en papel, corregidas conjuntamente al final.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html",
+    "href": "examen_preparacion.html",
+    "title": "Preparación del examen",
+    "section": "",
+    "text": "Estructura general\nEl examen final tiene dos partes que se hacen en días distintos:\nLas fechas y aulas concretas se te comunican en clase y se publican en Moodle.\nSolo se evalúa el criterio del currículo CE5.3 — “conocer y comprender conceptos básicos de programación textual, mostrando el progreso paso a paso de la ejecución de un programa a partir de un estado inicial y prediciendo su estado final tras la ejecución”.",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#plan-de-repaso-recomendado",
+    "href": "examen_preparacion.html#plan-de-repaso-recomendado",
+    "title": "Preparación del examen",
+    "section": "Plan de repaso recomendado",
+    "text": "Plan de repaso recomendado\n\n\n\n\n\n\n\nCuándo\nQué repasar\n\n\n\n\nTras S1\nReescribe el convertidor km/h ↔︎ m/s sin mirar\n\n\nTras S2 y S3\nReescribe el selector de fusible y la tabla MRUA en casa\n\n\nTras S4 y S5\nEscribe sin mirar la estadística de medidas y la biblioteca de resistencias\n\n\nTras S6\nPractica el trazado paso a paso con cualquier código de las sesiones anteriores",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#el-error-más-común",
+    "href": "examen_preparacion.html#el-error-más-común",
+    "title": "Preparación del examen",
+    "section": "El error más común",
+    "text": "El error más común\nEl error más común del alumnado en este tipo de exámenes es no haber practicado el trazado en pizarra. Saber programar es una habilidad; saber predecir qué imprime un programa que tú no has escrito es otra distinta. Se entrenan por separado.\nPara entrenar el trazado: coge cualquier programa de las sesiones, tápale la salida con la mano y dile a la persona de al lado: “¿qué imprime esto si la entrada es 5?”. Hazlo con frecuencia.",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  }
+]
