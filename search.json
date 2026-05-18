@@ -234,7 +234,51 @@
     "href": "s4_while_listas.html",
     "title": "S4 · while y listas",
     "section": "",
-    "text": "Próxima sesión\n\n\n\n\n\n\nNotaEsta página estará disponible antes de la sesión\n\n\n\nEn S4 distinguirás for (repetición controlada) de while (repetición por condición), e introducirás las listas como contenedor de varios datos a la vez. El problema base será una calculadora de estadísticos (media, mínimo, máximo, rango) sobre una lista de medidas experimentales. La extensión: detectar outliers.",
+    "text": "Objetivo de la sesión\nEn S3 usaste for para repetir un cálculo un número conocido de veces (range(10) da exactamente 10 iteraciones). Hoy aprendes:\nEl problema base es práctico de laboratorio puro: el usuario introduce N medidas experimentales una a una hasta que escribe fin, y el programa calcula media, mínimo, máximo y rango. Hasta ahora todos los programas pedían un número fijo de datos al inicio; este pide “todos los que haga falta”.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>S4 · while y listas</span>"
+    ]
+  },
+  {
+    "objectID": "s4_while_listas.html#paso-1-análisis",
+    "href": "s4_while_listas.html#paso-1-análisis",
+    "title": "S4 · while y listas",
+    "section": "Paso 1 — Análisis",
+    "text": "Paso 1 — Análisis\n\nEntrada: una secuencia de medidas (float) introducidas por el usuario, terminada con la palabra \"fin\".\nSalida: cinco valores: número de medidas, media, mínimo, máximo y rango.\nProceso: un bucle while con patrón centinela guarda las medidas en una lista. Después, un for recorre la lista para calcular suma, mínimo y máximo.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>S4 · while y listas</span>"
+    ]
+  },
+  {
+    "objectID": "s4_while_listas.html#paso-2-pseudocódigo",
+    "href": "s4_while_listas.html#paso-2-pseudocódigo",
+    "title": "S4 · while y listas",
+    "section": "Paso 2 — Pseudocódigo",
+    "text": "Paso 2 — Pseudocódigo\nmedidas &lt;- lista vacía\nentrada &lt;- pedir primera medida (o \"fin\")\nmientras entrada != \"fin\":\n    convertir entrada a número y añadirla a medidas\n    entrada &lt;- pedir siguiente medida (o \"fin\")\n\nsi la lista está vacía:\n    avisar y terminar\nsi no:\n    suma &lt;- 0\n    mínimo &lt;- primera medida\n    máximo &lt;- primera medida\n    para cada m en medidas:\n        suma &lt;- suma + m\n        si m &lt; mínimo: mínimo &lt;- m\n        si m &gt; máximo: máximo &lt;- m\n    media &lt;- suma / longitud de medidas\n    rango &lt;- máximo - mínimo\n    imprimir n, media, mínimo, máximo, rango",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>S4 · while y listas</span>"
+    ]
+  },
+  {
+    "objectID": "s4_while_listas.html#paso-3-código-python",
+    "href": "s4_while_listas.html#paso-3-código-python",
+    "title": "S4 · while y listas",
+    "section": "Paso 3 — Código Python",
+    "text": "Paso 3 — Código Python\n# Estadística de medidas experimentales\n\n# Recolección de medidas con patrón centinela\nmedidas = []\nentrada = input(\"Introduce una medida (o 'fin' para terminar): \")\nwhile entrada != \"fin\":\n    medidas.append(float(entrada))\n    entrada = input(\"Introduce una medida (o 'fin' para terminar): \")\n\n# Cálculo de estadísticos\nn = len(medidas)\nif n == 0:\n    print(\"No se introdujo ninguna medida.\")\nelse:\n    suma = 0\n    minimo = medidas[0]\n    maximo = medidas[0]\n    for m in medidas:\n        suma = suma + m\n        if m &lt; minimo:\n            minimo = m\n        if m &gt; maximo:\n            maximo = m\n    media = suma / n\n    rango = maximo - minimo\n\n    print(\"---\")\n    print(\"Número de medidas:\", n)\n    print(\"Media:\", media)\n    print(\"Mínimo:\", minimo)\n    print(\"Máximo:\", maximo)\n    print(\"Rango:\", rango)",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>S4 · while y listas</span>"
+    ]
+  },
+  {
+    "objectID": "s4_while_listas.html#paso-4-trazado-y-validación",
+    "href": "s4_while_listas.html#paso-4-trazado-y-validación",
+    "title": "S4 · while y listas",
+    "section": "Paso 4 — Trazado y validación",
+    "text": "Paso 4 — Trazado y validación\nEjecútalo con esta secuencia de entradas:\n4.7\n4.8\n4.6\n4.9\n4.7\nfin\nResultado esperado:\n\nNúmero de medidas: 5\nMedia: 4.74\nMínimo: 4.6\nMáximo: 4.9\nRango: 0.3 (puede salirte 0.299999… por el redondeo de los float; no es un error tuyo)\n\nComprueba también el caso límite: si escribes fin en la primera entrada (sin meter ninguna medida), debe imprimir el aviso y no romperse.\n\n\n\n\n\n\nTipPor qué inicializamos minimo y maximo con medidas[0]\n\n\n\nPodrías pensar en inicializar minimo = 999999 y maximo = -999999 (valores imposibles). Funciona en la práctica, pero es feo: si las medidas son temperaturas en Kelvin, esos “imposibles” podrían no serlo. Lo correcto y robusto es arrancar con el primer valor real de la lista (medidas[0]) y comparar desde ahí.\nPor eso comprobamos antes que n != 0: si la lista está vacía, medidas[0] daría error.",
     "crumbs": [
       "Las 6 sesiones",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>S4 · while y listas</span>"
@@ -245,7 +289,62 @@
     "href": "s5_funciones.html",
     "title": "S5 · Funciones",
     "section": "",
-    "text": "Próxima sesión\n\n\n\n\n\n\nNotaEsta página estará disponible antes de la sesión\n\n\n\nEn S5 aprenderás a definir funciones propias con def, parámetros y return. Construirás una pequeña biblioteca con Rserie y Rparalelo para calcular resistencias equivalentes. La extensión: calcular la resistencia equivalente de un circuito mixto serie-paralelo descomponiéndolo en pasos.\nEs la sesión más importante de la unidad desde el punto de vista del pensamiento computacional: aprender a descomponer un problema en subproblemas y a reutilizar código.",
+    "text": "Objetivo de la sesión\nHasta ahora, cada programa que has escrito ha sido una lista lineal de instrucciones. Si dentro de un programa había un cálculo que se repetía varias veces (por ejemplo, sumar dos resistencias en serie), tenías que copiar y pegar las mismas líneas en distintos sitios. Hoy aprendes a empaquetar ese cálculo bajo un nombre — una función — y a llamarlo tantas veces como haga falta.\nAl terminar la sesión sabrás:\nEsta es la sesión más importante del curso desde el punto de vista del pensamiento computacional. A partir de aquí dejas de programar como un principiante.\nEl problema base es eléctrico puro: construir una biblioteca con Rserie(R1, R2) y Rparalelo(R1, R2) y usarla para resolver dos circuitos sencillos. La extensión: calcular la resistencia equivalente de un circuito mixto serie-paralelo descomponiéndolo en pasos.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>S5 · Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "s5_funciones.html#paso-1-las-funciones-que-necesitas",
+    "href": "s5_funciones.html#paso-1-las-funciones-que-necesitas",
+    "title": "S5 · Funciones",
+    "section": "Paso 1 — Las funciones que necesitas",
+    "text": "Paso 1 — Las funciones que necesitas\n\n\n\n\n\n\n\n\nFunción\nQué hace\nFórmula\n\n\n\n\nRserie(R1, R2)\nResistencia equivalente de R1 y R2 en serie\nR1 + R2\n\n\nRparalelo(R1, R2)\nResistencia equivalente de R1 y R2 en paralelo\n(R1·R2) / (R1 + R2)\n\n\nintensidad(V, R)\nIntensidad por la ley de Ohm\nV / R",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>S5 · Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "s5_funciones.html#paso-2-pseudocódigo-del-programa-principal",
+    "href": "s5_funciones.html#paso-2-pseudocódigo-del-programa-principal",
+    "title": "S5 · Funciones",
+    "section": "Paso 2 — Pseudocódigo del programa principal",
+    "text": "Paso 2 — Pseudocódigo del programa principal\ndefinir Rserie(R1, R2) que devuelve R1 + R2\ndefinir Rparalelo(R1, R2) que devuelve (R1·R2) / (R1 + R2)\ndefinir intensidad(V, R) que devuelve V / R\n\ncircuito A: dos resistencias en serie\n  Req_A = Rserie(100, 220)\n  I_A = intensidad(12, Req_A)\n  imprimir resultados\n\ncircuito B: dos resistencias en paralelo\n  Req_B = Rparalelo(220, 330)\n  I_B = intensidad(12, Req_B)\n  imprimir resultados\nLos dos circuitos están alimentados con 12 V. El alumno tiene que calcular tanto la Req como la intensidad total I.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>S5 · Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "s5_funciones.html#paso-3-código-python",
+    "href": "s5_funciones.html#paso-3-código-python",
+    "title": "S5 · Funciones",
+    "section": "Paso 3 — Código Python",
+    "text": "Paso 3 — Código Python\nEscríbelo línea a línea, no copies y pegues.\n# Biblioteca eléctrica básica\n# S5 · Funciones — TECI I\n\ndef Rserie(R1, R2):\n    \"\"\"Devuelve la resistencia equivalente de R1 y R2 en serie (ohmios).\"\"\"\n    return R1 + R2\n\ndef Rparalelo(R1, R2):\n    \"\"\"Devuelve la resistencia equivalente de R1 y R2 en paralelo (ohmios).\n\n    Espera R1 &gt; 0 y R2 &gt; 0.\n    \"\"\"\n    return (R1 * R2) / (R1 + R2)\n\ndef intensidad(V, R):\n    \"\"\"Devuelve la intensidad que circula por R con tensión V, por la ley de Ohm (A).\"\"\"\n    return V / R\n\n\n# Programa principal: dos circuitos a 12 V\n\nV = 12\n\n# Circuito A: 100 Ω en serie con 220 Ω\nReq_A = Rserie(100, 220)\nI_A = intensidad(V, Req_A)\nprint(\"Circuito A (serie):\")\nprint(\"  Req =\", Req_A, \"ohmios\")\nprint(\"  I   =\", I_A, \"amperios\")\n\n# Circuito B: 220 Ω en paralelo con 330 Ω\nReq_B = Rparalelo(220, 330)\nI_B = intensidad(V, Req_B)\nprint(\"Circuito B (paralelo):\")\nprint(\"  Req =\", Req_B, \"ohmios\")\nprint(\"  I   =\", I_B, \"amperios\")",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>S5 · Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "s5_funciones.html#paso-4-trazado-y-validación",
+    "href": "s5_funciones.html#paso-4-trazado-y-validación",
+    "title": "S5 · Funciones",
+    "section": "Paso 4 — Trazado y validación",
+    "text": "Paso 4 — Trazado y validación\nAntes de ejecutar, completa tú los valores esperados a mano:\n\n\n\nCircuito\nReq esperada\nI esperada\n\n\n\n\nA (serie)\n100 + 220 = 320 Ω\n12 / 320 = 0.0375 A\n\n\nB (paralelo)\n(220·330)/(220+330) = 132 Ω\n12 / 132 ≈ 0.0909 A\n\n\n\nSi tu programa imprime estos números (con muchos decimales de cola en el caso B, no importa), está bien.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>S5 · Funciones</span>"
+    ]
+  },
+  {
+    "objectID": "s5_funciones.html#paso-5-reutiliza-la-biblioteca",
+    "href": "s5_funciones.html#paso-5-reutiliza-la-biblioteca",
+    "title": "S5 · Funciones",
+    "section": "Paso 5 — Reutiliza la biblioteca",
+    "text": "Paso 5 — Reutiliza la biblioteca\nSin tocar las funciones, añade al final del programa el cálculo de un tercer circuito a tu elección (por ejemplo, R1 = 470 Ω y R2 = 680 Ω en serie a 9 V). Comprueba que con tres líneas adicionales lo resuelves: Req, I, e impresión.\nAhí está el sentido de las funciones: si no las tuvieras, tendrías que repetir las fórmulas cada vez.\n\n\n\n\n\n\nTipLo que pasa si te falta el return\n\n\n\nQuita por un momento el return de Rserie (déjala con la línea R1 + R2 solita, sin return delante). Ejecuta el programa. Verás que Req_A imprime None y que I_A falla con un error tipo unsupported operand type(s) for /: 'int' and 'NoneType'.\nEse error misterioso significa: “estás intentando dividir entre algo que es None, no un número”. Y la causa es siempre la misma: una función que debía devolver algo y no devuelve nada. Vuelve a poner el return y todo funciona.",
     "crumbs": [
       "Las 6 sesiones",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>S5 · Funciones</span>"
@@ -256,7 +355,106 @@
     "href": "s6_integracion.html",
     "title": "S6 · Integración y simulacro",
     "section": "",
-    "text": "Última sesión antes del examen\n\n\n\n\n\n\nNotaEsta página estará disponible antes de la sesión\n\n\n\nEn S6 integrarás todo lo aprendido en un único problema: simulación de la descarga de un condensador a través de una resistencia. El programa combinará entrada de datos, una función para V(t), un bucle para iterar en el tiempo y una lista para almacenar los valores. La extensión consistirá en imprimir la tabla con un formato bonito.\nLa segunda mitad de la sesión será un simulacro escrito del examen: 4 preguntas tipo, en papel, corregidas conjuntamente al final.",
+    "text": "Objetivo de la sesión\nS6 cierra la unidad con dos bloques muy distintos:\nAl terminar la sesión sabrás:",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#paso-1-análisis",
+    "href": "s6_integracion.html#paso-1-análisis",
+    "title": "S6 · Integración y simulacro",
+    "section": "Paso 1 — Análisis",
+    "text": "Paso 1 — Análisis\n\nEntradas: V0, R, C, t_final, dt (los cinco como float).\nSalida: una tabla t | V(t) + dos resultados de cierre (τ y V mínima).\nProceso: bucle for sobre el índice del paso, función propia para V(t), lista para guardar los valores y un mínimo recorriendo la lista.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#paso-2-pseudocódigo",
+    "href": "s6_integracion.html#paso-2-pseudocódigo",
+    "title": "S6 · Integración y simulacro",
+    "section": "Paso 2 — Pseudocódigo",
+    "text": "Paso 2 — Pseudocódigo\nimportar math\n\ndefinir V(t, V0, R, C) que devuelve V0 · exp(-t / (R·C))\n\npedir V0, R, C, t_final, dt al usuario\ncalcular n_pasos = parte entera de (t_final / dt) + 1\ncalcular tau = R · C\n\ntensiones &lt;- lista vacía\nimprimir cabecera \"  t      V\"\n\npara i desde 0 hasta n_pasos - 1:\n    t = i · dt\n    v = V(t, V0, R, C)\n    añadir v a tensiones\n    imprimir t, v\n\nV_min &lt;- tensiones[0]\npara cada v en tensiones:\n    si v &lt; V_min: V_min &lt;- v\n\nimprimir tau y V_min\nReconocerás patrones: el “truco del índice” para iterar con paso decimal viene de S3, la lista y el cálculo del mínimo vienen de S4, la función V(t, …) viene de S5.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#paso-3-código-python",
+    "href": "s6_integracion.html#paso-3-código-python",
+    "title": "S6 · Integración y simulacro",
+    "section": "Paso 3 — Código Python",
+    "text": "Paso 3 — Código Python\nEscríbelo línea a línea, sin copiar y pegar bloques completos.\n# Simulación de la descarga de un condensador\n# S6 · Integración — TECI I\n\nimport math\n\n\ndef V(t, V0, R, C):\n    \"\"\"Devuelve la tensión en bornes del condensador en el instante t (V).\n\n    Modelo: V(t) = V0 · exp(-t / (R·C)).\n    Espera R &gt; 0 y C &gt; 0.\n    \"\"\"\n    return V0 * math.exp(-t / (R * C))\n\n\n# Entradas\nV0      = float(input(\"Tensión inicial V0 (V): \"))\nR       = float(input(\"Resistencia R (ohmios): \"))\nC       = float(input(\"Capacidad C (faradios): \"))\nt_final = float(input(\"Tiempo final (s): \"))\ndt      = float(input(\"Paso de tiempo dt (s): \"))\n\n# Cálculos previos\nn_pasos = int(t_final / dt) + 1\ntau     = R * C\n\n# Bucle principal: tabla y lista de tensiones\ntensiones = []\nprint(\"  t        V\")\nfor i in range(n_pasos):\n    t = i * dt\n    v = V(t, V0, R, C)\n    tensiones.append(v)\n    print(t, v)\n\n# Mínimo de la lista\nV_min = tensiones[0]\nfor v in tensiones:\n    if v &lt; V_min:\n        V_min = v\n\n# Resultados de cierre\nprint(\"---\")\nprint(\"Constante de tiempo tau = R·C =\", tau, \"s\")\nprint(\"Tensión mínima alcanzada en la tabla:\", V_min, \"V\")",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#paso-4-trazado-y-validación",
+    "href": "s6_integracion.html#paso-4-trazado-y-validación",
+    "title": "S6 · Integración y simulacro",
+    "section": "Paso 4 — Trazado y validación",
+    "text": "Paso 4 — Trazado y validación\nEjecútalo con un caso conocido: V0 = 10 V, R = 1000 Ω, C = 0.001 F, t_final = 5 s, dt = 1 s.\nEso da τ = 1·10³ · 10⁻³ = 1 s. La tabla esperada (redondeando a tres cifras):\n\n\n\nt (s)\nV (V)\n\n\n\n\n0\n10.000\n\n\n1\n3.679\n\n\n2\n1.353\n\n\n3\n0.498\n\n\n4\n0.183\n\n\n5\n0.067\n\n\n\nA los t = τ = 1 s, la tensión es 10 · e⁻¹ ≈ 3.679 V, que es justo el 37 % de los 10 V iniciales (✓ recordatorio físico). A los 5τ, ha caído por debajo del 1 % de la inicial.\nLa tensión mínima de la tabla, en este caso, es la última: V_min ≈ 0.067 V.\n\n\n\n\n\n\nTipSi las cifras no te coinciden\n\n\n\nLo más probable es que hayas equivocado el signo del exponente (exp(t/(R·C)) en lugar de exp(-t/(R·C))). Sin el menos, la tensión crece exponencialmente — irías hacia el infinito en lugar de hacia cero. Es un error muy típico, y se detecta justo así: con un caso conocido del que sabes el resultado a ojo.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#paso-5-repaso-explícito-de-las-piezas",
+    "href": "s6_integracion.html#paso-5-repaso-explícito-de-las-piezas",
+    "title": "S6 · Integración y simulacro",
+    "section": "Paso 5 — Repaso explícito de las piezas",
+    "text": "Paso 5 — Repaso explícito de las piezas\nAntes de pasar al simulacro, identifica en tu propio código:\n\nLa línea donde defines una función (S5).\nLa línea donde llamas a esa función.\nLa línea donde inicializas una lista vacía (S4).\nLa línea donde añades un elemento a la lista (S4).\nEl bucle for (S3).\nEl condicional que actualiza V_min (S2).\nUna conversión de tipo con float(input(...)) (S1).\n\nEs todo el curso en treinta líneas. Si lo entiendes entero, estás listo para el examen.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#pregunta-1-predicción-de-salida-bloque-a",
+    "href": "s6_integracion.html#pregunta-1-predicción-de-salida-bloque-a",
+    "title": "S6 · Integración y simulacro",
+    "section": "Pregunta 1 — Predicción de salida (bloque A)",
+    "text": "Pregunta 1 — Predicción de salida (bloque A)\nEscribe lo que imprime este programa por consola:\nx = 7\ny = 4\nif x &gt; y and x % 2 == 1:\n    print(\"A\")\nelif x &gt; y or y == 4:\n    print(\"B\")\nelse:\n    print(\"C\")\nprint(\"Fin\")\n\n\n\n\n\n\nSoluciónSolución (clic para desplegar)\n\n\n\n\n\nx &gt; y es 7 &gt; 4 → verdadero. x % 2 == 1 es 7 % 2 == 1 → 1 == 1 → verdadero. Ambos verdaderos: la primera condición del if se cumple. Imprime A.\nComo el if ya ha entrado, el elif y el else se saltan. Después se ejecuta el print(\"Fin\") que está fuera del bloque.\nSalida:\nA\nFin",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#pregunta-2-detección-y-corrección-de-errores-bloque-b",
+    "href": "s6_integracion.html#pregunta-2-detección-y-corrección-de-errores-bloque-b",
+    "title": "S6 · Integración y simulacro",
+    "section": "Pregunta 2 — Detección y corrección de errores (bloque B)",
+    "text": "Pregunta 2 — Detección y corrección de errores (bloque B)\nEl siguiente programa pretende calcular la media de una lista de notas, pero tiene dos errores: uno de sintaxis y uno de lógica. Identifícalos, indica la línea de cada uno y reescribe el programa corregido.\nnotas = [4, 7, 5, 9, 6]\nsuma = 0\nfor n in notas\n    suma = suma + n\nmedia = suma / 5\nprint(\"Media:\" media)\n\n\n\n\n\n\nSoluciónSolución (clic para desplegar)\n\n\n\n\n\nErrores de sintaxis:\n\nLínea 3 (for n in notas): falta el : al final. Python da SyntaxError. Correcto: for n in notas:.\nLínea 6 (print(\"Media:\" media)): falta una coma entre \"Media:\" y media. Correcto: print(\"Media:\", media).\n\nError de lógica:\n\nLínea 5 (media = suma / 5): la 5 está hardcodeada y solo funciona si la lista tiene exactamente cinco elementos. Si añades una nota o quitas una, la media sale mal. Lo correcto es dividir entre el número real de elementos: media = suma / len(notas).\n\nPrograma corregido:\nnotas = [4, 7, 5, 9, 6]\nsuma = 0\nfor n in notas:\n    suma = suma + n\nmedia = suma / len(notas)\nprint(\"Media:\", media)\nSalida: Media: 6.2.",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#pregunta-3-trazado-paso-a-paso-bloque-c",
+    "href": "s6_integracion.html#pregunta-3-trazado-paso-a-paso-bloque-c",
+    "title": "S6 · Integración y simulacro",
+    "section": "Pregunta 3 — Trazado paso a paso (bloque C)",
+    "text": "Pregunta 3 — Trazado paso a paso (bloque C)\nRellena la tabla de trazado y escribe la salida por consola de este programa:\ntotal = 0\nfor i in range(1, 6):\n    if i % 2 == 0:\n        total = total + i\n    else:\n        total = total - i\nprint(total)\n\n\n\nIteración\ni\ni % 2 == 0\nrama tomada\ntotal después\n\n\n\n\nAntes del bucle\n—\n—\n—\n0\n\n\n1ª\n?\n?\n?\n?\n\n\n2ª\n?\n?\n?\n?\n\n\n3ª\n?\n?\n?\n?\n\n\n4ª\n?\n?\n?\n?\n\n\n5ª\n?\n?\n?\n?\n\n\n\n\n\n\n\n\n\nSoluciónSolución (clic para desplegar)\n\n\n\n\n\nrange(1, 6) da 1, 2, 3, 4, 5 (cinco iteraciones; el 6 NO entra).\n\n\n\nIteración\ni\ni % 2 == 0\nrama tomada\ntotal después\n\n\n\n\nAntes del bucle\n—\n—\n—\n0\n\n\n1ª\n1\n1 % 2 == 0 → No\nelse: total - i\n0 - 1 = -1\n\n\n2ª\n2\n2 % 2 == 0 → Sí\nif: total + i\n-1 + 2 = 1\n\n\n3ª\n3\n3 % 2 == 0 → No\nelse: total - i\n1 - 3 = -2\n\n\n4ª\n4\n4 % 2 == 0 → Sí\nif: total + i\n-2 + 4 = 2\n\n\n5ª\n5\n5 % 2 == 0 → No\nelse: total - i\n2 - 5 = -3\n\n\n\nSalida: -3. (Es la suma alternada -1 + 2 - 3 + 4 - 5.)",
+    "crumbs": [
+      "Las 6 sesiones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
+    ]
+  },
+  {
+    "objectID": "s6_integracion.html#pregunta-4-escritura-de-código-bloque-d",
+    "href": "s6_integracion.html#pregunta-4-escritura-de-código-bloque-d",
+    "title": "S6 · Integración y simulacro",
+    "section": "Pregunta 4 — Escritura de código (bloque D)",
+    "text": "Pregunta 4 — Escritura de código (bloque D)\nEscribe una función clasifica_nota(nota) que reciba una nota numérica (de 0 a 10) y devuelva una de las cadenas \"Insuficiente\", \"Suficiente\", \"Bien\", \"Notable\" o \"Sobresaliente\", según estos rangos:\n\n\n\nRango\nCalificación\n\n\n\n\nnota &lt; 5\n\"Insuficiente\"\n\n\n5 ≤ nota &lt; 6\n\"Suficiente\"\n\n\n6 ≤ nota &lt; 7\n\"Bien\"\n\n\n7 ≤ nota &lt; 9\n\"Notable\"\n\n\nnota ≥ 9\n\"Sobresaliente\"\n\n\n\nJusto debajo de la función, escribe dos líneas que prueben la función con nota = 6.5 y nota = 9.2 imprimiendo los resultados por consola.\n\n\n\n\n\n\nSoluciónSolución (clic para desplegar)\n\n\n\n\n\ndef clasifica_nota(nota):\n    \"\"\"Devuelve la calificación textual correspondiente a una nota numérica de 0 a 10.\"\"\"\n    if nota &lt; 5:\n        return \"Insuficiente\"\n    elif nota &lt; 6:\n        return \"Suficiente\"\n    elif nota &lt; 7:\n        return \"Bien\"\n    elif nota &lt; 9:\n        return \"Notable\"\n    else:\n        return \"Sobresaliente\"\n\n\nprint(clasifica_nota(6.5))   # Bien\nprint(clasifica_nota(9.2))   # Sobresaliente\nDetalles del estilo recomendado:\n\nLas condiciones de los elif aprovechan que ya se ha descartado el caso anterior: en el segundo elif, escribir nota &lt; 6 basta porque el if anterior ya ha filtrado los nota &lt; 5. No hace falta 5 &lt;= nota &lt; 6.\nCada rama termina con return. En cuanto se ejecuta uno, la función se sale; no hace falta break ni nada similar.\nEl último caso (nota ≥ 9) se cubre con un else final, no con otro elif. Es más limpio y garantiza que siempre se devuelve algo.",
     "crumbs": [
       "Las 6 sesiones",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>S6 · Integración y simulacro</span>"
@@ -290,6 +488,94 @@
     "title": "Preparación del examen",
     "section": "El error más común",
     "text": "El error más común\nEl error más común del alumnado en este tipo de exámenes es no haber practicado el trazado en pizarra. Saber programar es una habilidad; saber predecir qué imprime un programa que tú no has escrito es otra distinta. Se entrenan por separado.\nPara entrenar el trazado: coge cualquier programa de las sesiones, tápale la salida con la mano y dile a la persona de al lado: “¿qué imprime esto si la entrada es 5?”. Hazlo con frecuencia.",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#variables-tipos-y-conversión",
+    "href": "examen_preparacion.html#variables-tipos-y-conversión",
+    "title": "Preparación del examen",
+    "section": "Variables, tipos y conversión",
+    "text": "Variables, tipos y conversión\nedad   = 17           # int   (entero)\naltura = 1.83         # float (decimal)\nnombre = \"Pepe\"       # str   (cadena)\nabierto = True        # bool  (True / False)\n\n\n\nConversión\nSintaxis\nEjemplo\n\n\n\n\nTexto → entero\nint(s)\nint(\"12\") → 12\n\n\nTexto → decimal\nfloat(s)\nfloat(\"3.5\") → 3.5\n\n\nNúmero → texto\nstr(x)\nstr(7) → \"7\"",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#entrada-y-salida",
+    "href": "examen_preparacion.html#entrada-y-salida",
+    "title": "Preparación del examen",
+    "section": "Entrada y salida",
+    "text": "Entrada y salida\nnombre = input(\"¿Cómo te llamas? \")          # input devuelve str\nedad   = int(input(\"¿Cuántos años tienes? \"))\nprint(\"Hola\", nombre, \"tienes\", edad, \"años\")",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#operadores-aritméticos",
+    "href": "examen_preparacion.html#operadores-aritméticos",
+    "title": "Preparación del examen",
+    "section": "Operadores aritméticos",
+    "text": "Operadores aritméticos\n\n\n\nOperador\nSignificado\nEjemplo\nResultado\n\n\n\n\n+\nSuma\n3 + 2\n5\n\n\n-\nResta\n3 - 2\n1\n\n\n*\nMultiplicación\n3 * 2\n6\n\n\n/\nDivisión real\n7 / 2\n3.5\n\n\n//\nDivisión entera\n7 // 2\n3\n\n\n%\nResto (módulo)\n7 % 2\n1\n\n\n**\nPotencia\n3 ** 2\n9",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#condicionales",
+    "href": "examen_preparacion.html#condicionales",
+    "title": "Preparación del examen",
+    "section": "Condicionales",
+    "text": "Condicionales\nif condicion1:\n    bloque1\nelif condicion2:\n    bloque2\nelse:\n    bloque3\nOperadores relacionales: ==, !=, &lt;, &lt;=, &gt;, &gt;=. Operadores lógicos: and, or, not.\nif 0 &lt;= nota &lt; 5:\n    print(\"Insuficiente\")\nelif nota &lt; 7 and asistencia &gt; 0.8:\n    print(\"Aprobado con asistencia OK\")",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#bucle-for-con-range",
+    "href": "examen_preparacion.html#bucle-for-con-range",
+    "title": "Preparación del examen",
+    "section": "Bucle for con range",
+    "text": "Bucle for con range\nfor i in range(5):          # 0, 1, 2, 3, 4\n    print(i)\n\nfor i in range(2, 7):       # 2, 3, 4, 5, 6\n    print(i)\n\nfor i in range(0, 10, 2):   # 0, 2, 4, 6, 8\n    print(i)\nEl último número de range NO se incluye.\nAcumulador estándar:\nsuma = 0\nfor i in range(1, 11):\n    suma = suma + i\nprint(suma)   # 55",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#bucle-while",
+    "href": "examen_preparacion.html#bucle-while",
+    "title": "Preparación del examen",
+    "section": "Bucle while",
+    "text": "Bucle while\nwhile condicion:\n    instrucciones\n    # algo del cuerpo debe cambiar la condición\nPatrón centinela:\nentrada = input(\"Dato (o 'fin'): \")\nwhile entrada != \"fin\":\n    procesar(entrada)\n    entrada = input(\"Dato (o 'fin'): \")",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#listas",
+    "href": "examen_preparacion.html#listas",
+    "title": "Preparación del examen",
+    "section": "Listas",
+    "text": "Listas\nmedidas = []                       # lista vacía\ncalibres = [6, 10, 16, 20, 25]     # lista con valores\n\n\n\nOperación\nSintaxis\nEjemplo\n\n\n\n\nLongitud\nlen(lista)\nlen(calibres) → 5\n\n\nAcceso por índice\nlista[i] (empieza en 0)\ncalibres[0] → 6\n\n\nÚltimo elemento\nlista[-1]\ncalibres[-1] → 25\n\n\nAñadir al final\nlista.append(valor)\nmedidas.append(4.7)\n\n\n\nRecorrer una lista:\nfor c in calibres:\n    print(c)\n\n# con índice:\nfor i in range(len(calibres)):\n    print(i, calibres[i])\nMínimo y máximo con un bucle:\nminimo = nums[0]\nmaximo = nums[0]\nfor x in nums:\n    if x &lt; minimo:\n        minimo = x\n    if x &gt; maximo:\n        maximo = x",
+    "crumbs": [
+      "Examen",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"
+    ]
+  },
+  {
+    "objectID": "examen_preparacion.html#funciones",
+    "href": "examen_preparacion.html#funciones",
+    "title": "Preparación del examen",
+    "section": "Funciones",
+    "text": "Funciones\ndef nombre(parametro1, parametro2):\n    \"\"\"Documentación breve de qué hace.\"\"\"\n    # cuerpo\n    return resultado\nLlamar a la función:\ny = nombre(arg1, arg2)\nReglas clave:\n\nUna función sin return devuelve None.\nLas variables creadas dentro de la función son locales: no existen fuera.\nEl orden de los argumentos coincide con el de los parámetros.\n\nEjemplo eléctrico:\ndef Rserie(R1, R2):\n    return R1 + R2\n\ndef Rparalelo(R1, R2):\n    return (R1 * R2) / (R1 + R2)\n\nReq = Rserie(100, Rparalelo(220, 330))",
     "crumbs": [
       "Examen",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Preparación del examen</span>"

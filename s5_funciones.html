@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -87,6 +122,9 @@ ul.task-list li input[type="checkbox"] {
 background: #453f93;
       }
 </style>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -219,7 +257,27 @@ background: #453f93;
     <h2 id="toc-title">Índice de contenidos</h2>
    
   <ul>
-  <li><a href="#próxima-sesión" id="toc-próxima-sesión" class="nav-link active" data-scroll-target="#próxima-sesión">Próxima sesión</a></li>
+  <li><a href="#objetivo-de-la-sesión" id="toc-objetivo-de-la-sesión" class="nav-link active" data-scroll-target="#objetivo-de-la-sesión">Objetivo de la sesión</a></li>
+  <li><a href="#plan-de-la-sesión-60-min" id="toc-plan-de-la-sesión-60-min" class="nav-link" data-scroll-target="#plan-de-la-sesión-60-min">Plan de la sesión (60 min)</a></li>
+  <li><a href="#recordatorio-el-bucle-del-programador" id="toc-recordatorio-el-bucle-del-programador" class="nav-link" data-scroll-target="#recordatorio-el-bucle-del-programador">Recordatorio: el bucle del programador</a></li>
+  <li><a href="#concepto-1-por-qué-necesitamos-funciones" id="toc-concepto-1-por-qué-necesitamos-funciones" class="nav-link" data-scroll-target="#concepto-1-por-qué-necesitamos-funciones">Concepto 1 — ¿Por qué necesitamos funciones?</a></li>
+  <li><a href="#concepto-2-sintaxis-def-parámetros-return" id="toc-concepto-2-sintaxis-def-parámetros-return" class="nav-link" data-scroll-target="#concepto-2-sintaxis-def-parámetros-return">Concepto 2 — Sintaxis: <code>def</code>, parámetros, <code>return</code></a></li>
+  <li><a href="#concepto-3-parámetros-y-argumentos" id="toc-concepto-3-parámetros-y-argumentos" class="nav-link" data-scroll-target="#concepto-3-parámetros-y-argumentos">Concepto 3 — Parámetros y argumentos</a></li>
+  <li><a href="#concepto-4-return-y-variables-locales" id="toc-concepto-4-return-y-variables-locales" class="nav-link" data-scroll-target="#concepto-4-return-y-variables-locales">Concepto 4 — <code>return</code> y variables locales</a></li>
+  <li><a href="#concepto-5-el-docstring" id="toc-concepto-5-el-docstring" class="nav-link" data-scroll-target="#concepto-5-el-docstring">Concepto 5 — El docstring</a></li>
+  <li><a href="#práctica-1-biblioteca-de-funciones-eléctricas" id="toc-práctica-1-biblioteca-de-funciones-eléctricas" class="nav-link" data-scroll-target="#práctica-1-biblioteca-de-funciones-eléctricas">Práctica 1 — Biblioteca de funciones eléctricas</a>
+  <ul class="collapse">
+  <li><a href="#paso-1-las-funciones-que-necesitas" id="toc-paso-1-las-funciones-que-necesitas" class="nav-link" data-scroll-target="#paso-1-las-funciones-que-necesitas">Paso 1 — Las funciones que necesitas</a></li>
+  <li><a href="#paso-2-pseudocódigo-del-programa-principal" id="toc-paso-2-pseudocódigo-del-programa-principal" class="nav-link" data-scroll-target="#paso-2-pseudocódigo-del-programa-principal">Paso 2 — Pseudocódigo del programa principal</a></li>
+  <li><a href="#paso-3-código-python" id="toc-paso-3-código-python" class="nav-link" data-scroll-target="#paso-3-código-python">Paso 3 — Código Python</a></li>
+  <li><a href="#paso-4-trazado-y-validación" id="toc-paso-4-trazado-y-validación" class="nav-link" data-scroll-target="#paso-4-trazado-y-validación">Paso 4 — Trazado y validación</a></li>
+  <li><a href="#paso-5-reutiliza-la-biblioteca" id="toc-paso-5-reutiliza-la-biblioteca" class="nav-link" data-scroll-target="#paso-5-reutiliza-la-biblioteca">Paso 5 — Reutiliza la biblioteca</a></li>
+  </ul></li>
+  <li><a href="#práctica-2-extensión-circuito-mixto-en-pasos" id="toc-práctica-2-extensión-circuito-mixto-en-pasos" class="nav-link" data-scroll-target="#práctica-2-extensión-circuito-mixto-en-pasos">Práctica 2 (extensión) — Circuito mixto en pasos</a></li>
+  <li><a href="#cierre-trazado-en-pizarra" id="toc-cierre-trazado-en-pizarra" class="nav-link" data-scroll-target="#cierre-trazado-en-pizarra">Cierre — Trazado en pizarra</a></li>
+  <li><a href="#antes-de-salir-de-clase-entrega-en-moodle" id="toc-antes-de-salir-de-clase-entrega-en-moodle" class="nav-link" data-scroll-target="#antes-de-salir-de-clase-entrega-en-moodle">Antes de salir de clase — entrega en Moodle</a></li>
+  <li><a href="#para-casa-opcional-pero-recomendable" id="toc-para-casa-opcional-pero-recomendable" class="nav-link" data-scroll-target="#para-casa-opcional-pero-recomendable">Para casa (opcional pero recomendable)</a></li>
+  <li><a href="#en-la-próxima-sesión" id="toc-en-la-próxima-sesión" class="nav-link" data-scroll-target="#en-la-próxima-sesión">En la próxima sesión</a></li>
   </ul>
 </nav>
     </div>
@@ -230,22 +288,583 @@ background: #453f93;
 
 
 
-<section id="próxima-sesión" class="level1">
-<h1>Próxima sesión</h1>
+<section id="objetivo-de-la-sesión" class="level1">
+<h1>Objetivo de la sesión</h1>
+<p>Hasta ahora, cada programa que has escrito ha sido <strong>una lista lineal de instrucciones</strong>. Si dentro de un programa había un cálculo que se repetía varias veces (por ejemplo, sumar dos resistencias en serie), tenías que copiar y pegar las mismas líneas en distintos sitios. Hoy aprendes a empaquetar ese cálculo bajo un nombre — una <strong>función</strong> — y a llamarlo tantas veces como haga falta.</p>
+<p>Al terminar la sesión sabrás:</p>
+<ul>
+<li>Definir una función con <code>def</code>, parámetros y <code>return</code>.</li>
+<li>Distinguir entre <strong>parámetros</strong> (lo que la función pide) y <strong>argumentos</strong> (lo que tú le pasas al llamarla).</li>
+<li>Entender qué es una <strong>variable local</strong> y por qué no puedes usarla fuera de la función.</li>
+<li>Escribir una pequeña <strong>biblioteca</strong> de funciones eléctricas y reutilizarla en varios problemas.</li>
+</ul>
+<p>Esta es la sesión más importante del curso desde el punto de vista del <strong>pensamiento computacional</strong>. A partir de aquí dejas de programar como un principiante.</p>
+<p>El problema base es eléctrico puro: <strong>construir una biblioteca con <code>Rserie(R1, R2)</code> y <code>Rparalelo(R1, R2)</code></strong> y usarla para resolver dos circuitos sencillos. La extensión: calcular la resistencia equivalente de un <strong>circuito mixto serie-paralelo</strong> descomponiéndolo en pasos.</p>
+</section>
+<section id="plan-de-la-sesión-60-min" class="level1">
+<h1>Plan de la sesión (60 min)</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tiempo</th>
+<th>Qué hacemos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10 min</td>
+<td>Por qué funciones. Sintaxis <code>def</code>, parámetros, <code>return</code></td>
+</tr>
+<tr class="even">
+<td>5 min</td>
+<td>Variables locales y alcance básico</td>
+</tr>
+<tr class="odd">
+<td>5 min</td>
+<td>Docstring: documentar lo que hace una función</td>
+</tr>
+<tr class="even">
+<td>25 min</td>
+<td>Práctica 1: biblioteca eléctrica <code>Rserie</code> / <code>Rparalelo</code></td>
+</tr>
+<tr class="odd">
+<td>10 min</td>
+<td>Práctica 2 (extensión): circuito mixto en pasos</td>
+</tr>
+<tr class="even">
+<td>5 min</td>
+<td>Cierre, trazado y entrega en Moodle</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="recordatorio-el-bucle-del-programador" class="level1">
+<h1>Recordatorio: el bucle del programador</h1>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Esta página estará disponible antes de la sesión
+<span class="screen-reader-only">Nota</span>A partir de hoy, programar es descomponer
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En S5 aprenderás a definir <strong>funciones</strong> propias con <code>def</code>, parámetros y <code>return</code>. Construirás una pequeña biblioteca con <code>Rserie</code> y <code>Rparalelo</code> para calcular resistencias equivalentes. La extensión: calcular la resistencia equivalente de un circuito mixto serie-paralelo descomponiéndolo en pasos.</p>
-<p>Es la sesión más importante de la unidad desde el punto de vista del <strong>pensamiento computacional</strong>: aprender a descomponer un problema en subproblemas y a reutilizar código.</p>
+<p>El método de las cuatro fases (analizar → pseudocódigo → código → trazar) sigue valiendo, pero la fase de análisis cambia: ya no se trata solo de identificar entrada–proceso–salida, sino también de <strong>detectar qué cálculos se repiten</strong> o son lo bastante independientes como para merecer una función propia.</p>
+<p>Una buena función hace <strong>una cosa, y solo una</strong>, tiene un nombre que dice qué cosa hace, y se puede leer sin necesidad de mirar las otras funciones del programa.</p>
 </div>
 </div>
+</section>
+<section id="concepto-1-por-qué-necesitamos-funciones" class="level1">
+<h1>Concepto 1 — ¿Por qué necesitamos funciones?</h1>
+<p>Imagina que en un problema necesitas calcular la resistencia equivalente de <strong>tres pares</strong> distintos de resistencias en serie. Sin funciones, escribirías esto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Req_1 <span class="op">=</span> <span class="dv">100</span> <span class="op">+</span> <span class="dv">220</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Req 1:"</span>, Req_1)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Req_2 <span class="op">=</span> <span class="dv">470</span> <span class="op">+</span> <span class="dv">1000</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Req 2:"</span>, Req_2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Req_3 <span class="op">=</span> <span class="dv">220</span> <span class="op">+</span> <span class="dv">330</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Req 3:"</span>, Req_3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Tres veces casi la misma línea. Y si mañana el problema fuera de resistencias <strong>en paralelo</strong>, tendrías que reescribir las tres con la fórmula <code>(R1·R2)/(R1+R2)</code>, con el riesgo de equivocarte en una y no en las otras.</p>
+<p>Con una función, el cálculo se escribe <strong>una vez</strong> y luego se llama tres:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rserie(R1, R2):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> R1 <span class="op">+</span> R2</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Req 1:"</span>, Rserie(<span class="dv">100</span>, <span class="dv">220</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Req 2:"</span>, Rserie(<span class="dv">470</span>, <span class="dv">1000</span>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Req 3:"</span>, Rserie(<span class="dv">220</span>, <span class="dv">330</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Tres ventajas inmediatas:</p>
+<ol type="1">
+<li><strong>No te repites.</strong> Si la fórmula cambia, la cambias en un solo sitio.</li>
+<li><strong>El programa principal se lee solo.</strong> <code>Rserie(100, 220)</code> dice exactamente lo que hace; <code>100 + 220</code> solo si recuerdas el contexto.</li>
+<li><strong>Las funciones se pueden combinar.</strong> <code>Rserie(Rparalelo(220, 330), 100)</code> es legal y resuelve un circuito mixto en una línea.</li>
+</ol>
+</section>
+<section id="concepto-2-sintaxis-def-parámetros-return" class="level1">
+<h1>Concepto 2 — Sintaxis: <code>def</code>, parámetros, <code>return</code></h1>
+<p>La sintaxis general:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nombre_de_la_funcion(parametro1, parametro2):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># cuerpo de la función</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> valor_de_salida</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cuatro elementos:</p>
+<ul>
+<li><code>def</code> es la palabra reservada que <strong>define</strong> una función. Va seguida del nombre que tú elijas.</li>
+<li>Entre paréntesis van los <strong>parámetros</strong>: las variables locales que la función va a recibir cuando se la llame.</li>
+<li>Tras los dos puntos, <strong>indentado</strong>, va el cuerpo (igual que en <code>if</code> o <code>for</code>).</li>
+<li><code>return</code> indica qué <strong>devuelve</strong> la función al exterior. La línea con <code>return</code> también termina la ejecución de la función.</li>
+</ul>
+<p>Ejemplo mínimo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cuadrado(x):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> x</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cuadrado(<span class="dv">5</span>))    <span class="co"># 25</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cuadrado(<span class="dv">7</span>))    <span class="co"># 49</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cuadrado(<span class="fl">0.1</span>))  <span class="co"># 0.010000000000000002</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Definir ≠ llamar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>def cuadrado(x):</code> solo <strong>define</strong> la función. Hasta que no escribas algo como <code>cuadrado(5)</code>, la función no se ejecuta. Es muy típico al empezar definir bien la función, ejecutar el programa y no ver nada por consola — porque te ha faltado <strong>llamarla</strong>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Convenciones de nombre
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Funciones que devuelven un cálculo numérico: nombre con minúsculas y guiones bajos (<code>area_circulo</code>, <code>velocidad_final</code>) o, si son nombres técnicos consolidados, respeta la mayúscula del símbolo (<code>Rserie</code>, <code>Rparalelo</code>, <code>Vrms</code>).</li>
+<li>Funciones que devuelven un sí/no: empieza por <code>es_</code> (<code>es_par(n)</code>, <code>es_aprobado(nota)</code>).</li>
+<li>Evita nombres genéricos como <code>funcion1</code> o <code>f</code>. El nombre tiene que <strong>decir qué hace</strong>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="concepto-3-parámetros-y-argumentos" class="level1">
+<h1>Concepto 3 — Parámetros y argumentos</h1>
+<p>Es un matiz de vocabulario que conviene tener claro:</p>
+<ul>
+<li><strong>Parámetros</strong> son las variables que aparecen en la <strong>definición</strong>: <code>def Rserie(R1, R2):</code> tiene parámetros <code>R1</code> y <code>R2</code>.</li>
+<li><strong>Argumentos</strong> son los valores que pasas al <strong>llamar</strong>: <code>Rserie(100, 220)</code> pasa los argumentos <code>100</code> y <code>220</code>.</li>
+</ul>
+<p>El orden importa. En <code>Rserie(100, 220)</code>, dentro de la función <code>R1 = 100</code> y <code>R2 = 220</code>. Si llamas <code>Rserie(220, 100)</code>, ahora <code>R1 = 220</code> y <code>R2 = 100</code>. Para <code>Rserie</code> es indiferente (sumar es conmutativo), pero para una función como <code>dividir(a, b)</code> el orden es crítico.</p>
+</section>
+<section id="concepto-4-return-y-variables-locales" class="level1">
+<h1>Concepto 4 — <code>return</code> y variables locales</h1>
+<p>Mira este programa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> doble(x):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    resultado <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resultado</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> doble(<span class="dv">5</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida: <code>10</code>. Pero ahora prueba a poner, debajo del <code>print(y)</code>, esta línea:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(resultado)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Falla con <code>NameError: name 'resultado' is not defined</code>. ¿Por qué? Porque <code>resultado</code> es una <strong>variable local</strong> de la función <code>doble</code>: existe <strong>solo mientras la función se está ejecutando</strong> y desaparece en cuanto se termina. El programa principal nunca la ve.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>La función habla con el exterior solo a través del <code>return</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lo que la función calcula internamente vive y muere dentro de ella. La única forma de <strong>sacar</strong> un valor de la función para usarlo fuera es escribirlo después de <code>return</code>. Si la función no tiene <code>return</code>, devuelve <code>None</code> (un valor especial que significa “nada”).</p>
+</div>
+</div>
+<p>Una función puede tener varios <code>return</code>, normalmente dentro de un <code>if</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> signo(x):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"positivo"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> x <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"negativo"</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"cero"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La función se sale en cuanto encuentra el primer <code>return</code> que se ejecute.</p>
+</section>
+<section id="concepto-5-el-docstring" class="level1">
+<h1>Concepto 5 — El docstring</h1>
+<p>Justo después de la línea <code>def</code>, puedes escribir una cadena entre triples comillas que <strong>documenta</strong> lo que hace la función. Se llama <strong>docstring</strong> y es la forma estándar de Python de explicar una función a quien la lee (o a ti mismo dentro de tres meses).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rparalelo(R1, R2):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Devuelve la resistencia equivalente de R1 y R2 en paralelo (en ohmios).</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Espera R1 &gt; 0 y R2 &gt; 0.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (R1 <span class="op">*</span> R2) <span class="op">/</span> (R1 <span class="op">+</span> R2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>No es obligatorio para que la función funcione, pero <strong>a partir de S5 lo vamos a usar siempre</strong> en cualquier función con un mínimo de entidad. En las prácticas de hoy lo verás aplicado.</p>
+</section>
+<section id="práctica-1-biblioteca-de-funciones-eléctricas" class="level1">
+<h1>Práctica 1 — Biblioteca de funciones eléctricas</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Pestaña: <code>s5_p1_biblioteca.py</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En online-python, abre una pestaña nueva con <code>+</code> y renómbrala <code>s5_p1_biblioteca.py</code>. Todo el código de esta práctica va en esa pestaña.</p>
+</div>
+</div>
+<p>Vas a escribir una <strong>biblioteca</strong> con tres funciones eléctricas básicas, y luego la usarás para resolver dos circuitos sencillos en el mismo programa.</p>
+<section id="paso-1-las-funciones-que-necesitas" class="level2">
+<h2 class="anchored" data-anchor-id="paso-1-las-funciones-que-necesitas">Paso 1 — Las funciones que necesitas</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Función</th>
+<th>Qué hace</th>
+<th>Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Rserie(R1, R2)</code></td>
+<td>Resistencia equivalente de R1 y R2 en serie</td>
+<td><code>R1 + R2</code></td>
+</tr>
+<tr class="even">
+<td><code>Rparalelo(R1, R2)</code></td>
+<td>Resistencia equivalente de R1 y R2 en paralelo</td>
+<td><code>(R1·R2) / (R1 + R2)</code></td>
+</tr>
+<tr class="odd">
+<td><code>intensidad(V, R)</code></td>
+<td>Intensidad por la ley de Ohm</td>
+<td><code>V / R</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="paso-2-pseudocódigo-del-programa-principal" class="level2">
+<h2 class="anchored" data-anchor-id="paso-2-pseudocódigo-del-programa-principal">Paso 2 — Pseudocódigo del programa principal</h2>
+<pre><code>definir Rserie(R1, R2) que devuelve R1 + R2
+definir Rparalelo(R1, R2) que devuelve (R1·R2) / (R1 + R2)
+definir intensidad(V, R) que devuelve V / R
+
+circuito A: dos resistencias en serie
+  Req_A = Rserie(100, 220)
+  I_A = intensidad(12, Req_A)
+  imprimir resultados
+
+circuito B: dos resistencias en paralelo
+  Req_B = Rparalelo(220, 330)
+  I_B = intensidad(12, Req_B)
+  imprimir resultados</code></pre>
+<p>Los dos circuitos están alimentados con <code>12 V</code>. El alumno tiene que calcular tanto la <code>Req</code> como la intensidad total <code>I</code>.</p>
+</section>
+<section id="paso-3-código-python" class="level2">
+<h2 class="anchored" data-anchor-id="paso-3-código-python">Paso 3 — Código Python</h2>
+<p>Escríbelo línea a línea, no copies y pegues.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Biblioteca eléctrica básica</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># S5 · Funciones — TECI I</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rserie(R1, R2):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Devuelve la resistencia equivalente de R1 y R2 en serie (ohmios)."""</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> R1 <span class="op">+</span> R2</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rparalelo(R1, R2):</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Devuelve la resistencia equivalente de R1 y R2 en paralelo (ohmios).</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Espera R1 &gt; 0 y R2 &gt; 0.</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (R1 <span class="op">*</span> R2) <span class="op">/</span> (R1 <span class="op">+</span> R2)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> intensidad(V, R):</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Devuelve la intensidad que circula por R con tensión V, por la ley de Ohm (A)."""</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> V <span class="op">/</span> R</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Programa principal: dos circuitos a 12 V</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Circuito A: 100 Ω en serie con 220 Ω</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>Req_A <span class="op">=</span> Rserie(<span class="dv">100</span>, <span class="dv">220</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>I_A <span class="op">=</span> intensidad(V, Req_A)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Circuito A (serie):"</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  Req ="</span>, Req_A, <span class="st">"ohmios"</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  I   ="</span>, I_A, <span class="st">"amperios"</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Circuito B: 220 Ω en paralelo con 330 Ω</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>Req_B <span class="op">=</span> Rparalelo(<span class="dv">220</span>, <span class="dv">330</span>)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>I_B <span class="op">=</span> intensidad(V, Req_B)</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Circuito B (paralelo):"</span>)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  Req ="</span>, Req_B, <span class="st">"ohmios"</span>)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"  I   ="</span>, I_B, <span class="st">"amperios"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="paso-4-trazado-y-validación" class="level2">
+<h2 class="anchored" data-anchor-id="paso-4-trazado-y-validación">Paso 4 — Trazado y validación</h2>
+<p>Antes de ejecutar, completa tú los valores esperados a mano:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Circuito</th>
+<th><code>Req</code> esperada</th>
+<th><code>I</code> esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A (serie)</td>
+<td><code>100 + 220 = 320</code> Ω</td>
+<td><code>12 / 320 = 0.0375</code> A</td>
+</tr>
+<tr class="even">
+<td>B (paralelo)</td>
+<td><code>(220·330)/(220+330) = 132</code> Ω</td>
+<td><code>12 / 132 ≈ 0.0909</code> A</td>
+</tr>
+</tbody>
+</table>
+<p>Si tu programa imprime estos números (con muchos decimales de cola en el caso B, no importa), está bien.</p>
+</section>
+<section id="paso-5-reutiliza-la-biblioteca" class="level2">
+<h2 class="anchored" data-anchor-id="paso-5-reutiliza-la-biblioteca">Paso 5 — Reutiliza la biblioteca</h2>
+<p>Sin tocar las funciones, <strong>añade al final del programa</strong> el cálculo de un tercer circuito a tu elección (por ejemplo, <code>R1 = 470 Ω</code> y <code>R2 = 680 Ω</code> en serie a <code>9 V</code>). Comprueba que con tres líneas adicionales lo resuelves: <code>Req</code>, <code>I</code>, e impresión.</p>
+<p>Ahí está el sentido de las funciones: si no las tuvieras, tendrías que <strong>repetir las fórmulas</strong> cada vez.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Lo que pasa si te falta el <code>return</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quita por un momento el <code>return</code> de <code>Rserie</code> (déjala con la línea <code>R1 + R2</code> solita, sin <code>return</code> delante). Ejecuta el programa. Verás que <code>Req_A</code> imprime <code>None</code> y que <code>I_A</code> falla con un error tipo <code>unsupported operand type(s) for /: 'int' and 'NoneType'</code>.</p>
+<p>Ese error misterioso significa: “estás intentando dividir entre algo que es <code>None</code>, no un número”. Y la causa es siempre la misma: <strong>una función que debía devolver algo y no devuelve nada</strong>. Vuelve a poner el <code>return</code> y todo funciona.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="práctica-2-extensión-circuito-mixto-en-pasos" class="level1">
+<h1>Práctica 2 (extensión) — Circuito mixto en pasos</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Pestaña: <code>s5_p2_circuito_mixto.py</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Solo si has terminado la práctica 1. Abre otra pestaña con <code>+</code> y renómbrala <code>s5_p2_circuito_mixto.py</code>. <strong>Copia primero la biblioteca de la práctica 1 al inicio</strong> — es lo que vamos a reutilizar.</p>
+</div>
+</div>
+<p>Considera el siguiente circuito a <code>12 V</code>:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  V((12 V)):::src --- A((A)):::node
+  A --- R1[R1 = 100 Ω]:::res
+  R1 --- B((B)):::node
+  B --- R2[R2 = 220 Ω]:::res
+  B --- R3[R3 = 330 Ω]:::res
+  R2 --- C((C)):::node
+  R3 --- C
+  C --- V
+
+  classDef src  fill:#fff7e6,stroke:#a36c0d,color:#3a2200,stroke-width:2px
+  classDef node fill:#f3f1ff,stroke:#453f93,color:#1a1244,stroke-width:1px
+  classDef res  fill:#effaf2,stroke:#2a7d4f,color:#0e3520,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Interpretación: <strong>R1 en serie con la asociación en paralelo de R2 y R3</strong>.</p>
+<p>La técnica estándar para resolverlo a mano es <strong>descomponer en pasos</strong>:</p>
+<ol type="1">
+<li>Calcular la resistencia equivalente del paralelo de R2 y R3 → <code>Rp</code>.</li>
+<li>Calcular la resistencia equivalente total como R1 en serie con <code>Rp</code> → <code>Req</code>.</li>
+<li>Calcular la intensidad total con la ley de Ohm a partir de <code>Req</code> y <code>V</code>.</li>
+</ol>
+<p>La gracia del ejercicio es que <strong>los tres pasos se traducen literalmente a tres llamadas de función</strong>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Solución</span>Solución (clic para desplegar)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resistencia equivalente de un circuito mixto serie-paralelo</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># S5 · Funciones — TECI I (extensión)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rserie(R1, R2):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Devuelve la resistencia equivalente de R1 y R2 en serie (ohmios)."""</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> R1 <span class="op">+</span> R2</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rparalelo(R1, R2):</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Devuelve la resistencia equivalente de R1 y R2 en paralelo (ohmios).</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Espera R1 &gt; 0 y R2 &gt; 0.</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (R1 <span class="op">*</span> R2) <span class="op">/</span> (R1 <span class="op">+</span> R2)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> intensidad(V, R):</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Devuelve la intensidad por la ley de Ohm (A)."""</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> V <span class="op">/</span> R</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del circuito</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>V  <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>R1 <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>R2 <span class="op">=</span> <span class="dv">220</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>R3 <span class="op">=</span> <span class="dv">330</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 1: paralelo de R2 y R3</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>Rp <span class="op">=</span> Rparalelo(R2, R3)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Paso 1 — Rp ="</span>, Rp, <span class="st">"Ω"</span>)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 2: R1 en serie con Rp</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>Req <span class="op">=</span> Rserie(R1, Rp)</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Paso 2 — Req ="</span>, Req, <span class="st">"Ω"</span>)</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Paso 3: intensidad total</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> intensidad(V, Req)</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Paso 3 — I ="</span>, I, <span class="st">"A"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Resultados esperados:</p>
+<ul>
+<li><code>Rp = (220·330)/(220+330) = 132 Ω</code>.</li>
+<li><code>Req = 100 + 132 = 232 Ω</code>.</li>
+<li><code>I = 12 / 232 ≈ 0.0517 A</code> (unos 51.7 mA).</li>
+</ul>
+<p><strong>El truco de las funciones</strong>: una vez tienes <code>Rserie</code> y <code>Rparalelo</code> definidas, los tres pasos del cálculo a mano se convierten en tres líneas de Python que se leen casi como el enunciado. Esa es la potencia de descomponer un problema en subproblemas.</p>
+<p>Si quisieras hacerlo en <strong>una sola línea</strong>, podrías escribir directamente:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> intensidad(V, Rserie(R1, Rparalelo(R2, R3)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Es legal en Python, y a veces se hace, pero <strong>a costa de legibilidad</strong>: la versión en pasos es más fácil de leer, de depurar y de explicar al examen. Quédate con esa.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cierre-trazado-en-pizarra" class="level1">
+<h1>Cierre — Trazado en pizarra</h1>
+<p>Antes de irte, traza este fragmento — es exactamente el tipo de pregunta que entra en el examen:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x, y):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> x <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> y</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> z</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> f(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> f(a, <span class="dv">1</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a, b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Tabla de trazado:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Paso</th>
+<th style="text-align: center;">Variable</th>
+<th>Valor calculado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Llamada <code>f(3, 4)</code></td>
+<td style="text-align: center;"><code>x</code> (local)</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>y</code> (local)</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>z</code> (local)</td>
+<td><code>3 + 2·4 = 11</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Vuelve al main</td>
+<td style="text-align: center;"><code>a</code></td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Llamada <code>f(a, 1)</code></td>
+<td style="text-align: center;"><code>x</code> (local)</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>y</code> (local)</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><code>z</code> (local)</td>
+<td><code>11 + 2·1 = 13</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Vuelve al main</td>
+<td style="text-align: center;"><code>b</code></td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<p>Salida: <code>11 13</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Lo nuevo que entra en el examen con las funciones
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A partir de S5, en el bloque de trazado del examen pueden aparecer funciones. El método se amplía con una columna más: cuando entras en una llamada, anota los valores que toman los parámetros locales; cuando salgas (<code>return</code>), anota el valor devuelto y cómo se asigna fuera.</p>
+</div>
+</div>
+</section>
+<section id="antes-de-salir-de-clase-entrega-en-moodle" class="level1">
+<h1>Antes de salir de clase — entrega en Moodle</h1>
+<p>Antes de cerrar el navegador, asegúrate de tener al menos estas pestañas en online-python:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pestaña</th>
+<th>Práctica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>s5_p1_biblioteca.py</code></td>
+<td>Biblioteca de funciones eléctricas</td>
+</tr>
+<tr class="even">
+<td><code>s5_p2_circuito_mixto.py</code> <em>(opcional)</em></td>
+<td>Circuito mixto en pasos</td>
+</tr>
+</tbody>
+</table>
+<p>Ahora descargas y entregas:</p>
+<ol type="1">
+<li>Pulsa el <strong>botón de descarga</strong> del editor. En el menú elige <strong>“Save all files as project (ZIP)”</strong>.</li>
+<li><strong>Renombra el ZIP</strong> a <code>s5_funciones_apellido.zip</code> (por ejemplo <code>s5_funciones_garcia.zip</code>).</li>
+<li>Sube el ZIP a la <strong>tarea de Moodle “S5 — Funciones”</strong> del curso de TECI I.</li>
+</ol>
+</section>
+<section id="para-casa-opcional-pero-recomendable" class="level1">
+<h1>Para casa (opcional pero recomendable)</h1>
+<ol type="1">
+<li>Añade a la biblioteca una función <code>Vdivisor(V, R1, R2)</code> que devuelva la <strong>tensión en R2</strong> en un divisor de tensión formado por R1 y R2 en serie alimentado por <code>V</code>. Fórmula: <code>V2 = V · R2 / (R1 + R2)</code>. Pruébala con <code>V = 12 V</code>, <code>R1 = 1000 Ω</code>, <code>R2 = 2200 Ω</code> (resultado esperado: <code>≈ 8.25 V</code>).</li>
+<li>Escribe una función <code>factorial(n)</code> (recordatorio: <code>n! = 1·2·3·…·n</code>) sin usar la suma, multiplicando dentro de un bucle. Compárala con tu solución de la “Para casa” de S3 — verás cómo, encapsulada en una función, queda mucho más reutilizable.</li>
+</ol>
+</section>
+<section id="en-la-próxima-sesión" class="level1">
+<h1>En la próxima sesión</h1>
+<p>S6 es la sesión de <strong>integración</strong>: un único problema combinará entrada de datos, una función para una fórmula física, un bucle para iterar en el tiempo y una lista para guardar los valores. Será una <strong>simulación de la descarga de un condensador</strong> a través de una resistencia. La segunda mitad de la sesión será un <strong>simulacro escrito</strong> del examen, con cuatro preguntas tipo que corregiremos juntos en pizarra.</p>
 
 
 </section>

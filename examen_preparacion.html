@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -226,7 +261,17 @@ background: #453f93;
   <li><a href="#plan-de-repaso-recomendado" id="toc-plan-de-repaso-recomendado" class="nav-link" data-scroll-target="#plan-de-repaso-recomendado">Plan de repaso recomendado</a></li>
   <li><a href="#el-error-más-común" id="toc-el-error-más-común" class="nav-link" data-scroll-target="#el-error-más-común">El error más común</a></li>
   </ul></li>
-  <li><a href="#hoja-resumen-de-sintaxis" id="toc-hoja-resumen-de-sintaxis" class="nav-link" data-scroll-target="#hoja-resumen-de-sintaxis">Hoja-resumen de sintaxis</a></li>
+  <li><a href="#hoja-resumen-de-sintaxis" id="toc-hoja-resumen-de-sintaxis" class="nav-link" data-scroll-target="#hoja-resumen-de-sintaxis">Hoja-resumen de sintaxis</a>
+  <ul class="collapse">
+  <li><a href="#variables-tipos-y-conversión" id="toc-variables-tipos-y-conversión" class="nav-link" data-scroll-target="#variables-tipos-y-conversión">Variables, tipos y conversión</a></li>
+  <li><a href="#entrada-y-salida" id="toc-entrada-y-salida" class="nav-link" data-scroll-target="#entrada-y-salida">Entrada y salida</a></li>
+  <li><a href="#operadores-aritméticos" id="toc-operadores-aritméticos" class="nav-link" data-scroll-target="#operadores-aritméticos">Operadores aritméticos</a></li>
+  <li><a href="#condicionales" id="toc-condicionales" class="nav-link" data-scroll-target="#condicionales">Condicionales</a></li>
+  <li><a href="#bucle-for-con-range" id="toc-bucle-for-con-range" class="nav-link" data-scroll-target="#bucle-for-con-range">Bucle <code>for</code> con <code>range</code></a></li>
+  <li><a href="#bucle-while" id="toc-bucle-while" class="nav-link" data-scroll-target="#bucle-while">Bucle <code>while</code></a></li>
+  <li><a href="#listas" id="toc-listas" class="nav-link" data-scroll-target="#listas">Listas</a></li>
+  <li><a href="#funciones" id="toc-funciones" class="nav-link" data-scroll-target="#funciones">Funciones</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -368,10 +413,235 @@ background: #453f93;
 </section>
 <section id="hoja-resumen-de-sintaxis" class="level1">
 <h1>Hoja-resumen de sintaxis</h1>
-<p>Esta hoja la entregaré con el examen. La elaboraré tras S5 y la publicaré aquí en cuanto esté lista para que la puedas repasar antes.</p>
-<p>(Pendiente de redactar.)</p>
+<p>Esta hoja se entrega <strong>impresa</strong> con el examen papel — el profesor reparte una copia a cada uno el día del examen, no hace falta que te la imprimas tú. Solo recoge <strong>lo que se ha visto en clase</strong> y cabe en una cara de A4.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Versión PDF descargable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si quieres repasar en casa con la hoja delante, puedes descargarla aquí: <strong><a href="hoja_resumen_sintaxis.pdf">Hoja-resumen de sintaxis Python (PDF, una cara)</a></strong>.</p>
+<p>Solo es práctica para casa. El día del examen ya te la doy yo.</p>
+</div>
+</div>
+<section id="variables-tipos-y-conversión" class="level2">
+<h2 class="anchored" data-anchor-id="variables-tipos-y-conversión">Variables, tipos y conversión</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>edad   <span class="op">=</span> <span class="dv">17</span>           <span class="co"># int   (entero)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>altura <span class="op">=</span> <span class="fl">1.83</span>         <span class="co"># float (decimal)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>nombre <span class="op">=</span> <span class="st">"Pepe"</span>       <span class="co"># str   (cadena)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>abierto <span class="op">=</span> <span class="va">True</span>        <span class="co"># bool  (True / False)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Conversión</th>
+<th>Sintaxis</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Texto → entero</td>
+<td><code>int(s)</code></td>
+<td><code>int("12")</code> → <code>12</code></td>
+</tr>
+<tr class="even">
+<td>Texto → decimal</td>
+<td><code>float(s)</code></td>
+<td><code>float("3.5")</code> → <code>3.5</code></td>
+</tr>
+<tr class="odd">
+<td>Número → texto</td>
+<td><code>str(x)</code></td>
+<td><code>str(7)</code> → <code>"7"</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="entrada-y-salida" class="level2">
+<h2 class="anchored" data-anchor-id="entrada-y-salida">Entrada y salida</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="op">=</span> <span class="bu">input</span>(<span class="st">"¿Cómo te llamas? "</span>)          <span class="co"># input devuelve str</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>edad   <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"¿Cuántos años tienes? "</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hola"</span>, nombre, <span class="st">"tienes"</span>, edad, <span class="st">"años"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="operadores-aritméticos" class="level2">
+<h2 class="anchored" data-anchor-id="operadores-aritméticos">Operadores aritméticos</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Operador</th>
+<th>Significado</th>
+<th>Ejemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>+</code></td>
+<td>Suma</td>
+<td><code>3 + 2</code></td>
+<td><code>5</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>-</code></td>
+<td>Resta</td>
+<td><code>3 - 2</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>*</code></td>
+<td>Multiplicación</td>
+<td><code>3 * 2</code></td>
+<td><code>6</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>/</code></td>
+<td>División real</td>
+<td><code>7 / 2</code></td>
+<td><code>3.5</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>//</code></td>
+<td>División entera</td>
+<td><code>7 // 2</code></td>
+<td><code>3</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>%</code></td>
+<td>Resto (módulo)</td>
+<td><code>7 % 2</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>**</code></td>
+<td>Potencia</td>
+<td><code>3 ** 2</code></td>
+<td><code>9</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="condicionales" class="level2">
+<h2 class="anchored" data-anchor-id="condicionales">Condicionales</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condicion1:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    bloque1</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> condicion2:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    bloque2</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    bloque3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Operadores relacionales: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>. Operadores lógicos: <code>and</code>, <code>or</code>, <code>not</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">0</span> <span class="op">&lt;=</span> nota <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Insuficiente"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nota <span class="op">&lt;</span> <span class="dv">7</span> <span class="kw">and</span> asistencia <span class="op">&gt;</span> <span class="fl">0.8</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Aprobado con asistencia OK"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="bucle-for-con-range" class="level2">
+<h2 class="anchored" data-anchor-id="bucle-for-con-range">Bucle <code>for</code> con <code>range</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):          <span class="co"># 0, 1, 2, 3, 4</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">7</span>):       <span class="co"># 2, 3, 4, 5, 6</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>):   <span class="co"># 0, 2, 4, 6, 8</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>El último número de <code>range</code> NO se incluye.</strong></p>
+<p>Acumulador estándar:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>suma <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    suma <span class="op">=</span> suma <span class="op">+</span> i</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(suma)   <span class="co"># 55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="bucle-while" class="level2">
+<h2 class="anchored" data-anchor-id="bucle-while">Bucle <code>while</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> condicion:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    instrucciones</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># algo del cuerpo debe cambiar la condición</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Patrón centinela:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>entrada <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Dato (o 'fin'): "</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> entrada <span class="op">!=</span> <span class="st">"fin"</span>:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    procesar(entrada)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    entrada <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Dato (o 'fin'): "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="listas" class="level2">
+<h2 class="anchored" data-anchor-id="listas">Listas</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>medidas <span class="op">=</span> []                       <span class="co"># lista vacía</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>calibres <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">16</span>, <span class="dv">20</span>, <span class="dv">25</span>]     <span class="co"># lista con valores</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operación</th>
+<th>Sintaxis</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Longitud</td>
+<td><code>len(lista)</code></td>
+<td><code>len(calibres)</code> → <code>5</code></td>
+</tr>
+<tr class="even">
+<td>Acceso por índice</td>
+<td><code>lista[i]</code> (empieza en 0)</td>
+<td><code>calibres[0]</code> → <code>6</code></td>
+</tr>
+<tr class="odd">
+<td>Último elemento</td>
+<td><code>lista[-1]</code></td>
+<td><code>calibres[-1]</code> → <code>25</code></td>
+</tr>
+<tr class="even">
+<td>Añadir al final</td>
+<td><code>lista.append(valor)</code></td>
+<td><code>medidas.append(4.7)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Recorrer una lista:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> calibres:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(c)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># con índice:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(calibres)):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i, calibres[i])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Mínimo y máximo con un bucle:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>minimo <span class="op">=</span> nums[<span class="dv">0</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>maximo <span class="op">=</span> nums[<span class="dv">0</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> nums:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">&lt;</span> minimo:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        minimo <span class="op">=</span> x</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">&gt;</span> maximo:</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        maximo <span class="op">=</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="funciones" class="level2">
+<h2 class="anchored" data-anchor-id="funciones">Funciones</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nombre(parametro1, parametro2):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Documentación breve de qué hace."""</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># cuerpo</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resultado</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Llamar a la función:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> nombre(arg1, arg2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Reglas clave:</p>
+<ul>
+<li>Una función sin <code>return</code> devuelve <code>None</code>.</li>
+<li>Las variables creadas dentro de la función son <strong>locales</strong>: no existen fuera.</li>
+<li>El orden de los argumentos coincide con el de los parámetros.</li>
+</ul>
+<p>Ejemplo eléctrico:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rserie(R1, R2):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> R1 <span class="op">+</span> R2</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Rparalelo(R1, R2):</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (R1 <span class="op">*</span> R2) <span class="op">/</span> (R1 <span class="op">+</span> R2)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>Req <span class="op">=</span> Rserie(<span class="dv">100</span>, Rparalelo(<span class="dv">220</span>, <span class="dv">330</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
